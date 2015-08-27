@@ -74,7 +74,7 @@ body {
 
     display: flex;
     align-items: flex-start;
-    padding: 170px 0 350px; /* Same as header and footer heights */
+    padding: 210px 0 350px; /* Same as header and footer heights */
     flex-direction: row;
     /*
     background: url(%%gradient%%);
@@ -125,14 +125,19 @@ body::before {
     top: 0px;
     background: transparent;
     border-bottom: none;
-    height: 170px;
+    height: 210px;
     z-index: 2;
 }
     #header-bottom-left {
         position: absolute;
         bottom: 0px;
-        left: 30px;
-        right: 380px;
+
+
+        /* Tab-bar side 'padding': 25px
+           Side margins: 35px
+           Sidebar width: 340px */
+        left: 60px; /* Padding + margin */
+        right: 400px; /* Sidebar + margin + padding */
 
         background: rgba(50, 60, 70, 0.8);
         border-top-left-radius: 2px;
@@ -140,7 +145,7 @@ body::before {
         text-align: center;
 
         /* Need to push up redditname when no tabs */
-        min-height: 38px;
+        min-height: 48px;
     }
 
     /* Tabs being supplied elsewhere */
@@ -151,13 +156,13 @@ body::before {
         #header #header-img {
             visibility: visible;
             position: absolute;
-            left: 0px;
-            top: -128px;
+            left: -40px;
+            top: -155px;
             width: 64px;
             height: 64px;
             background-position: -184px -4px;
 
-            /* spritesheet */
+            /* spritesheet - do not delete comment */
             /*
             background-image: url(%%spritesheet%%);
             */
@@ -172,19 +177,24 @@ body::before {
         #header-bottom-left .redditname {
             visibility: visible;
             position: absolute;
-            height: 50px;
-            line-height: 50px;
-            top: -50px;
+            height: 80px;
+            line-height: 80px;
+            top: -80px;
             left: 0px;
             width: 100%;
             color: white;
         }
         #header-bottom-left .redditname a {
             color: white;
-            font-size: 30px;
+            font-size: 50px;
             font-family: helvetica, verdana, arial, sans-serif;
-            font-weight: normal;
-            letter-spacing: 1px;
+            font-weight: 100;
+            letter-spacing: 14px;
+            font-variant: small-caps;
+            text-transform: lowercase;
+        }
+        #header-bottom-left .redditname a:hover {
+            text-decoration: none;
         }
         #header-bottom-left .redditname a::before {
             content: '/r/';
@@ -195,8 +205,8 @@ body::before {
             display: inline-block;
         }
             .tabmenu li {
-                height: 38px;
-                line-height: 38px;
+                height: 48px;
+                line-height: 48px;
                 padding: 0 8px;
                 margin: 0px;
                 min-width: 60px;
@@ -370,7 +380,7 @@ body::before {
     background: rgba(255, 255, 255, 0.8);
     order: 10;
     padding: 20px 25px;
-    margin: 40px 15px 40px 0px;
+    margin: 40px 35px 40px 0px;
     right: 0px;
     min-width: 340px;
     margin-top: 40px;
@@ -436,8 +446,8 @@ body::before {
         /* Post Link Button */
         .sidebox .morelink {
             background: rgba(13, 59, 85, 0.6);
-            height: 38px;
-            line-height: 38px;
+            height: 48px;
+            line-height: 48px;
             border: 1px solid #CCC;
             transition: background 0.4s;
         }
@@ -915,7 +925,7 @@ body > .content {
     border-radius: 2px;
     background: white;
     width: 100%;
-    margin: 0 0px 0 15px !important;
+    margin: 0 0 0 35px !important;
 
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
@@ -1696,7 +1706,7 @@ body > .content {
             z-index: 50;
             left: 15px;
             right: 15px;
-            top: -38px;
+            top: -48px;
             background: rgba(0,0,0,0.5);
             border-top-left-radius: 2px;
             border-top-right-radius: 2px;
