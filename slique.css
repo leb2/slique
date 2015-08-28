@@ -21,6 +21,7 @@ input:focus, textarea:focus {
 
 .link.last-clicked {
     border: none; /* No dashed lines! */
+    overflow: visible;
 }
 
 .md {
@@ -57,11 +58,19 @@ a:visited {
     background: #FEFEFE;
     transition: background 0.2s;
     background: rgba(255, 255, 255, 0.8);
+    border-radius: 0px;
+    box-shadow: none;
 }
 button:hover, .content textarea:focus, .content input[type=url]:focus,
 .content input[type=email]:focus, .content input[type=text]:focus,
 .content input[type=password]:focus, .content input[type=email]:focus {
     background: rgba(0, 0, 0, 0.1);
+}
+button:disabled, .content textarea:disabled, .content input[type=url]:disabled,
+.content input[type=email]:disabled, .content input[type=text]:disabled,
+.content input[type=password]:disabled, .content input[type=email]:disabled {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: not-allowed;
 }
 button:active, .content textarea:active, .content input[type=url]:active,
 .content input[type=email]:active, .content input[type=text]:active,
@@ -157,7 +166,7 @@ body::before {
             visibility: visible;
             position: absolute;
             left: -40px;
-            top: -155px;
+            top: -140px;
             width: 64px;
             height: 64px;
             background-position: -184px -4px;
@@ -213,7 +222,6 @@ body::before {
                 display: inline-block;
                 transition: background 0.2s;
             }
-
             .tabmenu li:hover {
                 background: rgba(255, 255, 255, 0.1);
                 border-bottom: 3px solid rgba(255, 255, 255, 0.1);
@@ -242,7 +250,7 @@ body::before {
 
     #header-bottom-right {
         position: absolute;
-        top: 0px;
+        top: 25px;
         bottom: initial;
         background: transparent;
         margin: 10px;
@@ -254,22 +262,60 @@ body::before {
         #header-bottom-right.res-navTop {
             background: rgba(40,40,40,0.3);
             margin-right: 0px;
-            height: 30px;
-            line-height: 30px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 11px;
+            font-weight: 100;
         }
             #header-bottom-right #userbarToggle {
                 border-radius: 0px;
                 background: rgba(60,60,60,0.8);
+                transition: background 0.2s, color 0.2s;
                 border: none;
                 width: 40px;
                 left: -40px;
                 text-align: center;
-                line-height: 30px;
+                line-height: 35px;
+                padding: 0px;
+                font-size: 40px;
+                font-weight: 100;
+                color: #DDD;
             }
+            #header-bottom-right #userbarToggle:hover {
+                color: #FFF;
+                background: rgba(60,60,60,0.9);
+            }
+            #header-bottom-right.res-navTop .separator {
+                margin: 0px 10px;
+                width: 1px;
+                height: 100%;
+                text-indent: 10px;
+                background: #999;
+            }
+
             #header-bottom-right.res-navTop a,
             #header-bottom-right.res-navTop a:visited {
                 color: white;
             }
+            #header-bottom-right.res-navTop * {
+                text-transform: capitalize;
+                font-weight: normal;
+            }
+            #header-bottom-right.res-navTop .message-count {
+                border-radius: 0px;
+                width: 30px;
+                text-align: center;
+                font-size: 12px;
+                margin-left: 6px;
+            }
+
+            #header-bottom-right.res-navTop .user {
+                margin-left: 12px;
+            }
+            #header-bottom-right.res-navTop .logout {
+                margin-right: 12px;
+            }
+
 
         /* Use first separator as element to expand menu */
         #header-bottom-right:not(.res-navTop) .separator {
@@ -361,6 +407,7 @@ body::before {
         #header-bottom-right:not(.res-navTop) .user {
             margin-top: 50px;
             padding-right: 55px;
+            font-size: 0px;
         }
 
             #header-bottom-right:not(.res-navTop) a {
@@ -369,10 +416,49 @@ body::before {
                 font-size: 13px;
             }
 
+
+        /* New mail! */
+        #header-bottom-right:not(.res-navTop) > a#mail.havemail {
+            background: rgba(105, 38, 38, 0.6);
+        }
+        #header-bottom-right:not(.res-navTop) > a#mail.havemail:hover {
+            background: rgba(105, 38, 38, 0.7);
+        }
+        #header-bottom-right:not(.res-navTop):hover .message-count {
+            display: none;
+        }
+        #header-bottom-right .message-count {
+            background: rgba(255, 92, 92, 0.63);
+        }
+
+
+
     #sr-header-area {
-        /* temp */
-        display: none;
+        background: rgba(0,0,0,0.2);
+        border: none;
+        padding: 0 12px;
+        height: 24px;
+        line-height: 24px;
     }
+        #sr-header-area, #sr-header-area a,
+        #sr-header-area .dropdown.srdrop .selected {
+            color: #AAA;
+            height: 24px;
+            line-height: 24px;
+        }
+        #sr-header-area a:hover, #sr-header-area .dropdown.srdrop .selected:hover {
+            color: #DDD;
+        }
+
+        #RESShortcutsEditContainer, #RESShortcutsEditContainer > * {
+            background: transparent;
+            color: #AAA;
+            height: 24px;
+            line-height: 24px;
+        }
+        #RESShortcutsEditContainer > *:hover {
+            color: #DDD;
+        }
 
 
 .side {
@@ -510,7 +596,9 @@ body::before {
                     .linkinfo .score .word {
                         text-transform: uppercase;
                     }
-
+            .side .linkinfo .shortlink > input[type='text']{
+                border: 1px solid #BBB;
+            }
 
 
         /* Subreddit specific sidebar info */
@@ -650,6 +738,25 @@ body::before {
                 float: right;
                 color: #777;
                 font-size: 11px;
+            }
+
+            .titlebox .leavemoderator,
+            .titlebox form.leavecontributor-button {
+                background: #FAFAFA;
+                padding: 12px;
+                font-size: 11px;
+                border: 1px solid #BBB;
+            }
+            .titlebox .leavemoderator {
+                margin-top: 12px;
+                border-bottom: none;
+            }
+            .titlebox form.leavecontributor-button {
+                margin-bottom: 12px;
+                border-top: none;
+            }
+            .icon-menu a {
+                background: none;
             }
             .titlebox .bottom {
                 margin-top: 10px;
@@ -1141,6 +1248,47 @@ body > .content {
                 opacity: 0.7;
             }
 
+
+            /* Form that shows up after you click report */
+            #siteTable .report-action-form,
+            #siteTable .post-sharing {
+                background: #FAFAFA;
+                border-radius: 0px;
+                padding: 12px;
+                max-width: none;
+                border: 1px solid #BBB;
+                width: 100%;
+                margin: 12px;
+                margin-right: 65%;
+            }
+                .report-action-form .reason-prompt {
+                    padding-bottom: 1px;
+                    display: inline-block;
+                    padding-bottom: 2px;
+                    margin-bottom: 8px;
+                    border-bottom: 1px solid #DDD;
+                    width: 80%;
+                    font-weight: bold;
+                }
+                .report-action-form .reason-prompt:first-letter {
+                    text-transform: uppercase;
+                }
+                .report-action-form .report-action-form label > input[type='radio'] {
+                    margin-right: 12px;
+                }
+                .report-action-form .report-action-form button[type='submit'] {
+                    margin-right: 6px;
+                }
+
+                .post-sharing .post-sharing-main {
+                    pointer-events: none
+                }
+
+
+
+
+
+
             /* Hide dash separator when text is expanded */
             #siteTable .expando-button.expanded ~ .flat-list .first::after {
                 display: none;
@@ -1174,6 +1322,10 @@ body > .content {
                     padding: 0 3px;
                 }
             /* Number of comments */
+
+            .flat-list {
+                text-transform: uppercase;
+            }
             .listing-page .link .flat-list {
                 padding: 0px;
                 text-transform: uppercase;
@@ -1189,7 +1341,7 @@ body > .content {
                 line-height: 18px;
             }
             /*.listing-page .flat-list.buttons li.first::after {*/
-            .listing-page .flat-list.buttons::after {
+            .flat-list.buttons::after {
                 content: '—';
                 padding: 0 10px;
                 color: #888;
@@ -1543,7 +1695,7 @@ body > .content {
     }
     .commentarea .expand {
         font-weight: bold;
-        font-size: 14px;
+        font-size: 11px;
     }
 
 
