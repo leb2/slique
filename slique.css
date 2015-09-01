@@ -552,14 +552,21 @@ body::before {
         }
         .sidebox a::after {
             visibility: visible;
-            content: "POST LINK";
             font-size: 14px;
             position: absolute;
             left: 0px;
             right: 0px;
             text-align: center;
         }
-        .sidebox.submit-text, .sidebox.create {
+        .sidebox.submit-link a::after {
+            content: "POST LINK";
+        }
+        .sidebox.submit-text a::after {
+            content: "POST TEXT"
+        }
+
+        /* Create a new subreddit? */
+        .sidebox.create {
             display: none;
         }
 
