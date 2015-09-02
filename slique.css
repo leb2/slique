@@ -86,7 +86,7 @@ body {
     padding: 210px 0 350px; /* Same as header and footer heights */
     flex-direction: row;
     /*
-    background: url(%%gradient%%);
+    background: url(%%background%%);
     */
     background: url('http://i.imgur.com/VsrAZoQ.png');
     background-color: hsl(194, 7%, 30%);
@@ -101,7 +101,7 @@ body::before {
     height: 100%;
     content: "";
     /*
-    background: url(%%background%%);
+    background: url(%%tile%%);
     */
     background: url('http://i.imgur.com/teQbNM5.png');
     opacity: 0.4;
