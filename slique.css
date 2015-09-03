@@ -1680,6 +1680,10 @@ body > .content {
         .commentarea .menuarea > .spacer:first-child {
             display: block;
             height: 35px;
+            width: 100%;
+        }
+        .commentarea .menuarea > .spacer + .spacer {
+            width: 100%;
         }
         .commentarea .menuarea .toggle .togglebutton,
         .commentarea #REScommentNavToggle [id^='nav']{
