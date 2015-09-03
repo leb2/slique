@@ -1984,7 +1984,7 @@ body > .content {
 #userTaggerToolTip {
     border-radius: 0px;
     height: auto;
-    height: initial;
+    height: initial !important;
 }
     #userTaggerToolTip h3 {
         height: 40px;
@@ -2057,6 +2057,6 @@ body > .content {
 
 
 /* Toolbar Styles */
-#tb-bottombar, #tb-bottombar *, .RESDialogSmall * {
+#tb-bottombar, #tb-bottombar * {
     box-sizing: content-box;
 }
