@@ -4,6 +4,9 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+#RESConsoleContainer * {
+    box-sizing: content-box;
+}
 
 /* background: #32576b; */
 
@@ -11,7 +14,7 @@ input:focus, textarea:focus {
     outline: none;
 }
 
-.debuginfo, .trending-subreddits, .sidebox.create .spacer, #hsts_pixel,
+.trending-subreddits, .sidebox.create .spacer, #hsts_pixel,
 #jumpToContent {
     display: none;
 }
@@ -108,6 +111,13 @@ body::before {
     top: 0;
 }
 
+/* Pi symbol */
+.debuginfo {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
 .linkflairlabel, .flair {
     margin: 0px;
     margin-right: 4px;
@@ -170,6 +180,7 @@ body::before {
             width: 64px;
             height: 64px;
             background-position: -184px -4px;
+            margin-top: 10px;
 
             /* spritesheet - do not delete comment */
             /*
@@ -532,8 +543,7 @@ body::before {
         /* Post Link Button */
         .sidebox .morelink {
             background: rgba(13, 59, 85, 0.6);
-            height: 48px;
-            line-height: 48px;
+            height: initial;
             border: 1px solid #CCC;
             transition: background 0.4s;
         }
@@ -547,9 +557,11 @@ body::before {
             font-weight: 100;
             letter-spacing: 2px;
             text-transform: uppercase;
-            visibility: hidden;
             color: white;
+            padding: 8px 12px;
         }
+
+        /* If want to force button text */
         .sidebox a::after {
             visibility: visible;
             font-size: 14px;
@@ -557,12 +569,6 @@ body::before {
             left: 0px;
             right: 0px;
             text-align: center;
-        }
-        .sidebox.submit-link a::after {
-            content: "POST LINK";
-        }
-        .sidebox.submit-text a::after {
-            content: "POST TEXT"
         }
 
         /* Create a new subreddit? */
@@ -625,7 +631,7 @@ body::before {
                 overflow: hidden; /* word wrap not allowed */
                 font-size: 24px;
                 text-align: center;
-                margin: 50px 0 12px;
+                margin: 30px 0 12px;
                 padding-bottom: 2px;
                 border-bottom: 1px solid #BBB;
                 font-family: helvetica, arial, verdana, sans-serif;
@@ -796,7 +802,7 @@ body::before {
 
                 .titlebox .usertext h2 {
                     text-align: center;
-                    margin-top: 55px;
+                    margin-top: 40px;
                     text-transform: uppercase;
                     font-weight: bold;
                 }
@@ -966,9 +972,13 @@ body::before {
                 border-radius: 1px;
             }
 
+    .side #ad_main {
+        margin-top: 30px;
+    }
+
     /* Recently viewed links, moderators, etc. */
     .side .sidecontentbox {
-        margin-top: 50px;
+        margin-top: 30px;
     }
         /* About moderators */
         .side .sidecontentbox li.more {
@@ -1002,10 +1012,17 @@ body::before {
             }
 
             .sidecontentbox .midcol {
-                display: none;
+                /*display: none;*/
             }
+                .sidecontentbox .midcol .arrow {
+                    margin-right: 0px;
+                    margin-left: 0px;
+                }
             .sidecontentbox .entry {
                 margin: 6px 0;
+                position: relative;
+                left: -8px;
+                margin-right: 0px;
             }
                 .sidecontentbox a.reddit-link-title {
                     font-weight: 100;
@@ -1059,7 +1076,8 @@ body > .content {
 
         display: flex;
         flex-direction: row;
-        align-items: center;
+        /*align-items: center;*/
+        align-items: start;
     }
     .listing-page #siteTable .thing:hover {
         background: #F2F2F2;
@@ -1070,6 +1088,7 @@ body > .content {
         .midcol { /* Votes */
             min-width: 40px !important;
             margin: 0px;
+            margin-top: 8px;
             overflow: visible;
         }
             .midcol .score {
@@ -1122,6 +1141,7 @@ body > .content {
             height: 70px !important;
             min-width: 70px;
             margin: 0 20px;
+            margin-top: 6px;
             border-radius: 5px;
             border: 1px solid #DDD;
             overflow: hidden;
@@ -1321,7 +1341,8 @@ body > .content {
 
                 /* Remove the word 'submitted' from the tagline */
                 .thing .tagline time,
-                .thing .tagline .author {
+                .thing .tagline .author,
+                .thing .tagline .RESUserTag {
                     font-size: x-small;
                 }
                 .thing .tagline time::after {
@@ -1349,7 +1370,7 @@ body > .content {
             }
             /*.listing-page .flat-list.buttons li.first::after {*/
             .flat-list.buttons::after {
-                content: '—';
+                content: '';
                 padding: 0 10px;
                 color: #888;
             }
@@ -1362,12 +1383,14 @@ body > .content {
             }
 
             /* Show/hide corner icons on link hover */
-            .loggedin.listing-page .thing:hover .flat-list.buttons li.first ~ li {
+            .loggedin.listing-page .thing:hover .flat-list.buttons li.share,
+            .loggedin.listing-page .thing:hover .flat-list.buttons li.share ~ li {
                 opacity: 0.9;
             }
 
             /* Corner button containers */
-            .loggedin.listing-page .flat-list.buttons li.first ~ li {
+            .loggedin.listing-page .flat-list.buttons li.share,
+            .loggedin.listing-page .flat-list.buttons li.share ~ li {
                 opacity: 0;
 
                 white-space: nowrap;
@@ -1379,7 +1402,8 @@ body > .content {
                 color: white;
             }
                 /* Corner button icons */
-                .loggedin.listing-page .flat-list.buttons li.first ~ li::after {
+                .loggedin.listing-page .flat-list.buttons li.share::after,
+                .loggedin.listing-page .flat-list.buttons li.share ~ li::after {
                     opacity: 0.6;
 
                     position: absolute;
@@ -1389,7 +1413,7 @@ body > .content {
                     bottom: 0px;
                     text-align: center;
 
-                    /* Spritesheet */
+                    /* Spritesheet (do not remove comment)*/
                     /*
                     background-image: url(%%spritesheet%%);
                     */
@@ -1404,12 +1428,14 @@ body > .content {
                 }
 
                 /* Icons on hover */
-                .loggedin.listing-page .flat-list.buttons li.first ~ li:hover::after {
+                .loggedin.listing-page .flat-list.buttons li.share li:hover::after
+                .loggedin.listing-page .flat-list.buttons li.share ~ li:hover::after {
                     opacity: 1;
                 }
 
                 /* Tooltips */
-                .loggedin.listing-page .flat-list.buttons li.first ~ li a {
+                .loggedin.listing-page .flat-list.buttons li.share a,
+                .loggedin.listing-page .flat-list.buttons li.share ~ li a {
                     opacity: 0;
 
                     position: absolute;
@@ -1429,12 +1455,14 @@ body > .content {
                 }
 
                 /* Tooltips on hover */
-                .loggedin.listing-page .flat-list.buttons li.first ~ li a:hover {
+                .loggedin.listing-page .flat-list.buttons li.share a:hover,
+                .loggedin.listing-page .flat-list.buttons li.share ~ li a:hover {
                     text-decoration: none;
                     opacity: 1;
                 }
                     /* Background for tooltip */
-                    .loggedin.listing-page .flat-list.buttons li.first ~ li a::after {
+                    .loggedin.listing-page .flat-list.buttons li.share a::after,
+                    .loggedin.listing-page .flat-list.buttons li.share ~ li a::after {
                         content: "";
                         border-radius: 2px;
                         background: rgba(0,0,0,0.7);
@@ -1450,7 +1478,10 @@ body > .content {
 
                 /* Cancel styles for extra buttons from res / being moderator */
                 .res.loggedin.listing-page .flat-list.buttons li.report-button + li,
-                .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li {
+                .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li,
+
+                /* /r/toolbox */
+                .moderator.listing-page .flat-list.buttons li.first + li:not(.share) {
                     opacity: 1;
                     position: static;
                     width: auto;
@@ -1585,6 +1616,14 @@ body > .content {
     color: #555;
 }
 
+    /* RES */
+    .commentarea .comment-visits-box {
+        border: 1px solid #BBB;
+        border-radius: 0px;
+        background: #FAFAFA;
+        padding: 10px 24px;
+    }
+
     .commentarea .usertext-edit {
         width: 100%;
         max-width: 500px;
@@ -1624,8 +1663,38 @@ body > .content {
         display: block;
         overflow: visible;
     }
-    .commentarea .menuarea {
-    }
+        .commentarea .loadFlat {
+            margin-left: 12px;
+        }
+        .commentarea #REScommentSubToggle {
+            padding: 4px 12px;
+            border-radius: 0px;
+            background: #FAFAFA;
+            transition: background 0.2s;
+            color: #666;
+            font-weight: normal;
+        }
+            .commentarea #REScommentSubToggle:hover {
+                background: #DDD;
+            }
+        .commentarea .menuarea > .spacer:first-child {
+            display: block;
+            height: 35px;
+        }
+        .commentarea .menuarea .toggle .togglebutton,
+        .commentarea #REScommentNavToggle [id^='nav']{
+            font-size: 12px;
+            font-weight: normal;
+            text-transform: capitalize;
+            transition: color 0.15s;
+        }
+            .commentarea .menuarea .toggle .togglebutton:hover,
+            .commentarea #REScommentNavToggle [id^='nav']:hover {
+                color: black;
+            }
+
+
+
         .menuarea .dropdown-title:first-letter {
             text-transform: uppercase;
         }
@@ -1644,6 +1713,7 @@ body > .content {
         }
         .menuarea .dropdown:hover {
             background: rgba(0,0,0,0.2);
+            cursor: pointer;
         }
             .menuarea .dropdown .selected {
                 text-decoration: none;
@@ -1684,7 +1754,7 @@ body > .content {
                 vertical-align: middle;
             }
             .commentarea .tagline .author {
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: normal;
             }
             .commentarea .tagline .submitter {
@@ -1696,13 +1766,19 @@ body > .content {
         .commentarea .comment {
             border-left: 2px solid #bcc5cc;
         }
+            .comment .tagline {
+                font-size: 10px;
+            }
+                .comment .tagline time::after {
+                    display: none;
+                }
 
     .commentarea blockquote {
         color: #777;
     }
     .commentarea .expand {
         font-weight: bold;
-        font-size: 11px;
+        font-size: 10px;
     }
 
 
@@ -1898,3 +1974,89 @@ body > .content {
         .submit-page form.content button[type=submit]:active {
             background: hsl(201, 25%, 25%);
         }
+
+
+
+
+/* RES */
+
+/* Tags */
+#userTaggerToolTip {
+    border-radius: 0px;
+    height: auto;
+    height: initial;
+}
+    #userTaggerToolTip h3 {
+        height: 40px;
+        background: #FAFAFA;
+        color: #444;
+        font-weight: 300;
+    }
+    #userTaggerClose {
+        border-radius: 0px;
+    }
+
+    #userTaggerToolTip input[type='text'], #userTaggerPreview,
+    .userTagLink.hasTag {
+        border-radius: 0px;
+        padding: 3px 6px;
+        height: auto;
+        height: initial;
+    }
+    #userTaggerPreview {
+        min-height: 22px;
+    }
+    #userTaggerToolTip #userTaggerSave {
+        border-radius: 0px;
+        border: 1px solid #64AF70;
+        border: none;
+        padding: 6px 16px;
+        font-weight: 100;
+        text-transform: uppercase;
+        background: rgba(91, 136, 98, 0.85);
+        transition: background 0.2s;
+    }
+    #userTaggerToolTip #userTaggerSave:hover {
+        background: rgba(91, 136, 98, 1);
+    }
+
+    #userTaggerToolTip .toggleButton {
+        height: initial;
+        width: 100px;
+        display: flex;
+    }
+
+    #userTaggerToolTip .toggleOn, #userTaggerToolTip .toggleOff {
+        box-sizing: content-box;
+        border-radius: 0px;
+        border: 1px solid #BBB;
+        transition: background 0.2s;
+        text-transform: uppercase;
+        font-weight: 300;
+        width: 100%;
+    }
+    #userTaggerToolTip .toggleButton:not(.enabled) .toggleOn {
+        background: rgba(16, 122, 196, 0.8);
+        border-right: none;
+    }
+    #userTaggerToolTip .toggleButton.enabled .toggleOff {
+        border-left: none;
+        background: rgba(208, 32, 32, 0.8);
+    }
+
+
+
+/* Top right buttons */
+#RESShortcutsSort, #RESShortcutsRight, #RESShortcutsLeft,
+#RESShortcutsAdd, #RESShortcutsTrash, #RESShortcutsEditContainer {
+    background: transparent !important;
+    color: #EEE !important;
+}
+
+
+
+
+/* Toolbar Styles */
+#tb-bottombar, #tb-bottombar *, .RESDialogSmall * {
+    box-sizing: content-box;
+}
