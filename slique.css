@@ -122,8 +122,8 @@ body::before {
     margin: 0px;
     margin-right: 4px;
     padding: 2px 8px;
-    border-radius: 1px;
-    border: 1px solid #DFDFDF;
+    border-radius: 0px;
+    border: 1px solid #e7e7e7;
     font-size: 10px;
 }
 .side .flair {
@@ -1339,18 +1339,27 @@ body > .content {
             .thing .tagline {
                 order: 2;
                 line-height: 18px;
+                line-height: 12px;
                 font-size: 0px;
+                display: flex;
+                align-items: center;
             }
 
                 /* Remove the word 'submitted' from the tagline */
                 .thing .tagline time,
                 .thing .tagline .author,
                 .thing .tagline .RESUserTag {
-                    font-size: x-small;
+                    font-size: 10px;
+                    position: relative;
+                    top: -1px;
                 }
                 .thing .tagline time::after {
                     content: 'by';
                     padding: 0 3px;
+                }
+                /* User Flair */
+                .thing .tagline .flair {
+                    margin-left: 4px;
                 }
             /* Number of comments */
 
@@ -1372,11 +1381,14 @@ body > .content {
                 line-height: 18px;
             }
             /*.listing-page .flat-list.buttons li.first::after {*/
-            .flat-list.buttons::after {
+            .flat-list.buttons {
+                margin-right: 14px;
+            }
+            /*.flat-list.buttons::after {
                 content: '';
                 padding: 0 10px;
                 color: #888;
-            }
+            }*/
 
             /* NSFW Tag */
             .listing-page .flat-list.buttons .nsfw-stamp {
@@ -1405,6 +1417,8 @@ body > .content {
                 text-align: center;
                 color: white;
             }
+
+
                 /* Corner button icons */
                 .loggedin.listing-page .flat-list.buttons li.share::after,
                 .loggedin.listing-page .flat-list.buttons li.share ~ li::after {
@@ -1492,6 +1506,36 @@ body > .content {
                     width: auto;
                     width: initial;
                 }
+
+                    /* Link Flair Maker */
+                    li .flairselector {
+                        background: #FAFAFA;
+                        padding: 12px !important;
+                    }
+                        li .flairselector h2 {
+                            margin-bottom: 14px;
+                            font-weight: 300;
+                            color: #333;
+                            text-transform: capitalize;
+                            font-size: 14px;
+                            background: none;
+                        }
+                        li .flairselector .linkflair {
+                            text-align: center;
+                        }
+                        li .flairselector .flairoptionpane ul {
+                            width: 100%;
+                        }
+                            li .flairselector .flairoptionpane ul > li,
+                            li .flairselector .flairselection .linkflair {
+                                padding: 6px;
+                            }
+                                li .flairselector .flairoptionpane ul .linkflair a.title,
+                                li .flairselector .flairselection .linkflair a {
+                                    display: inline !important;
+                                }
+
+
                     /* Cancel styles for mod/res anchor */
                     .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li a {
                         opacity: 1;
@@ -2069,3 +2113,83 @@ body > .content {
 #tb-bottombar, #tb-bottombar * {
     box-sizing: content-box;
 }
+
+
+
+
+
+/* Moderator Edit flair page */
+
+
+.flair-settings {
+    padding-top: 20px;
+}
+    .flair-settings > h1 {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 300;
+    }
+        .flair-settings > h1 strong {
+            font-weight: 300;
+            text-transform: none;
+        }
+
+    .flair-settings .linefield {
+        margin: 15px auto;
+        padding: 12px;
+        background: #FAFAFA;
+        border: 1px solid #BBB;
+    }
+        .flair-settings .linefield .title {
+            color: #222;
+            font-weight: 300;
+            text-transform: capitalize;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            border-bottom: 1px solid #CCC;
+            padding-bottom: 4px;
+        }
+        .flair-settings .linefield label {
+            font-size: 12px;
+        }
+        .flair-settings .save-button {
+            text-align: center;
+        }
+
+/* Add flair ul */
+.flair-settings + .tabmenu {
+    text-align: center;
+    width: 100%;
+    background: #EEE;
+    margin-top: 50px;
+    display: block;
+    border-bottom: 1px solid #BBB;
+    border-top: 1px solid #BBB;
+}
+    .flair-settings + .tabmenu li.selected {
+        border-color: #2F6C82
+    }
+    .flair-settings + .tabmenu li:hover {
+        background: rgba(0,0,0,0.1);
+    }
+        .flair-settings + .tabmenu li.selected a {
+            color: #B92035 !important;
+        }
+        .flair-settings + .tabmenu li a {
+            color: #333;
+        }
+.tabpane-content {
+    background: #FAFAFA;
+    border: none;
+    padding: 30px;
+    padding-bottom: 50px;
+}
+    .tabpane-content .linefield.flair-jump {
+        margin: 0 auto;
+        margin-bottom: 15px;
+        background: #E4E4E4;
+    }
+        .tabpane-content .linefield.flair-jump .linefield-content {
+            font-size: 12px;
+        }
