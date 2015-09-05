@@ -5,17 +5,19 @@ var replace = require('gulp-replace');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 
+var sassDir = './sass/**/*.scss';
+
 gulp.task('build', function() {
     // return gulp.src('./slique.css')
-    return gulp.src('./sass/*.scss')
+    return gulp.src(sassDir)
+
+        .pipe(sass())
 
         /* Uncomment reddit resources, e.g. background: url(%%image%%); */
         .pipe(replace(/\/\*(?:(?:.|\n)(?:(?!\*\/)))*?(.*%%.*;)(?:.|\n)*?\*\//g,'$1'))
 
         /* Remove normal urls with external resources */
         .pipe(replace(/\n.*?url\([\'\"]?[^%].*/g,''))
-
-        .pipe(sass())
 
         .pipe(replace('@charset "UTF-8";',''))
 
@@ -26,19 +28,19 @@ gulp.task('build', function() {
 
         .pipe(minifyCss())
 
-        .pipe(rename('./SLIQUE.css'))
+        .pipe(rename('./slique.css'))
 
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('sass', function() {
-    return gulp.src('./sass/*.scss')
+    return gulp.src(sassDir)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./stylesheets/'));
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./sass/*.scss', ['sass']);
+    gulp.watch(sassDir, ['sass']);
 });
 
 

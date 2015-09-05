@@ -1,0 +1,37 @@
+.footer-parent {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 300px;
+}
+    .footer-parent .footer {
+        border-radius: 0px;
+        border: 1px solid #BBB;
+        background: rgba(255,255,255,0.1);
+    }
+        .footer .col {
+            border-color: #666;
+        }
+            .footer .col .title {
+                color: #CCC;
+                text-transform: uppercase;
+                font-weight: 100;
+                font-size: 14px;
+                text-align: center;
+                padding-bottom: 4px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #777;
+            }
+            .footer a:first-letter {
+                text-transform: uppercase;
+            }
+            .footer a {
+                color: #7D92B3;
+            }
+            .footer a:visited {
+                color: #A27DB3;
+            }
+            .footer a.buygold {
+                font-weight: normal;
+            }

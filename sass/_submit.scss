@@ -1,0 +1,151 @@
+/* Submit Page Styles */
+
+.submit-page div.content {
+    text-align: center;
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+    .submit-page .content .md {
+        color: #666;
+    }
+    .submit-page div.content input,
+    .submit-page div.content textarea {
+        border: 1px solid #DFDFDF;
+        font-size: 16px;
+        text-align: center;
+    }
+    .submit-page div.content > h1 {
+        border-bottom: 1px solid #DDD;
+        padding-bottom: 4px;
+        font-size: 30px;
+        font-weight: 100;
+        text-transform: capitalize;
+        width: 95%;
+        margin: 0px auto 10px auto;
+    }
+    .submit-page div.content form.content {
+        margin: 0px;
+        width: 100%;
+        max-width: 700px;
+        display: inline-block;
+    }
+        .submit-page form.content .formtabs-content {
+            width: 100%;
+            text-align: center;
+            border: none;
+        }
+            .submit-page .formtabs-content .spacer {
+                display: inline-block;
+                width: 100%;
+            }
+                .submit-page .content .roundfield {
+                    font-size: inherit;
+                    margin: 12px !important; /* To cancel default important */
+                    width: inherit;
+                    padding: 12px;
+                    background: #FAFAFA;
+                    border: 1px solid #DDD;
+                    border-radius: 2px;
+                    color: #666;
+                }
+                    .roundfield .usertext-edit {
+                        margin: 0 auto;
+                    }
+                    .roundfield label {
+                        font-size: 13px;
+                    }
+                    .roundfield #suggested-reddits h3 {
+                        margin-top: 16px;
+                        margin-bottom: 6px;
+                        text-transform: capitalize;
+                    }
+                    .roundfield#url-field #suggest-title {
+                        text-align: center;
+                        margin-top: 10px;
+                    }
+                        .roundfield#url-field #suggest-title button {
+                            margin: 0px;
+                            display: inline-block;
+                        }
+
+                /* Subreddit specific rules */
+                .submit-page .spacer > .roundfield.submit_text {
+                    color: inherit;
+                    max-height: none;
+                }
+                    .submit-page .roundfield.submit_text .content {
+                        text-align: left;
+                    }
+                    .submit-page .submit_text .md {
+                        font-size: inherit;
+                    }
+                    .submit-page .submit_text .md > h1,
+                    .submit-page .submit_text .md > p {
+                        text-align: center;
+                    }
+                    .submit-page .submit_text .md > h1 {
+                        font-size: 22px;
+                        padding-bottom: 0px;
+                        text-align: left;
+                        border: none;
+                        font-weight: bold;
+                    }
+
+
+                .submit-page .content h1,
+                .submit-page .spacer > .roundfield .title {
+                    color: #444;
+                    text-transform: capitalize;
+                    display: block;
+                    width: 100%;
+                    border-bottom: 1px solid #DDD;
+                    padding-bottom: 2px;
+                    margin-bottom: 10px;
+                    font-weight: 100;
+                    font-size: 18px;
+                }
+            .submit-page .roundfield.info-notice {
+                width: 80%;
+                font-size: 13px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+
+        .submit-page form.content .tabmenu {
+            position: absolute;
+            z-index: 50;
+            left: 15px;
+            right: 15px;
+            top: -48px;
+            background: rgba(0,0,0,0.5);
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            padding: 0px;
+            text-align: center;
+        }
+            .submit-page .content .tabmenu li a {
+                border: none;
+                background: none;
+            }
+            .submit-page .content .tabmenu li.selected a {
+                font-size: inherit;
+            }
+        .submit-page form.content button[type=submit] {
+            padding: 14px 80px;
+            background: hsl(201, 25%, 40%);
+            font-size: 18px;
+            color: white;
+            font-weight: 100;
+            font-family: helvetica, verdana, arial, sans-serif;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            color: #EEE;
+        }
+        .submit-page form.content button[type=submit]:hover,
+        .submit-page form.content button[type=submit]:focus {
+            background: hsl(201, 25%, 30%);
+        }
+        .submit-page form.content button[type=submit]:active {
+            background: hsl(201, 25%, 25%);
+        }

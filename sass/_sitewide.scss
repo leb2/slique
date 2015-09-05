@@ -1,0 +1,173 @@
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#RESConsoleContainer * {
+    box-sizing: content-box;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.trending-subreddits, .sidebox.create .spacer, #hsts_pixel,
+#jumpToContent {
+    display: none;
+}
+.spacer {
+    margin: 0px !important;
+}
+
+.link.last-clicked {
+    border: none; /* No dashed lines! */
+    overflow: visible;
+}
+
+.md {
+    color: #444;
+    font-size: 12px;
+    font-family: helvetica, verdana, arial, sans-serif;
+}
+.md a, a {
+    color: #5777A8;
+
+}
+.md a:hover, a:hover {
+    color: hsl(216, 31%, 65%);
+}
+
+button {
+    padding: 6px 16px;
+    border-radius: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #DDD;
+    outline: none;
+    box-sizing: content-box;
+    transition: background 0.2s;
+    text-transform: uppercase;
+}
+
+a:visited {
+    color: #8D5BA4;
+}
+
+.content textarea, .content input[type=url],
+.content input[type=email], .content input[type=text],
+.content input[type=password], .content input[type=email] {
+    padding: 8px;
+    border: 1px solid #DDD;
+    background: #FEFEFE;
+    transition: background 0.2s;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0px;
+    box-shadow: none;
+}
+button:hover, .content textarea:focus, .content input[type=url]:focus,
+.content input[type=email]:focus, .content input[type=text]:focus,
+.content input[type=password]:focus, .content input[type=email]:focus {
+    background: rgba(0, 0, 0, 0.1);
+}
+button:disabled, .content textarea:disabled, .content input[type=url]:disabled,
+.content input[type=email]:disabled, .content input[type=text]:disabled,
+.content input[type=password]:disabled, .content input[type=email]:disabled {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: not-allowed;
+}
+button:active, .content textarea:active, .content input[type=url]:active,
+.content input[type=email]:active, .content input[type=text]:active,
+.content input[type=password]:active, .content input[type=email]:active {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    padding: 210px 0 350px; /* Same as header and footer heights */
+    flex-direction: row;
+    /*
+    background: url(%%background%%);
+    */
+    background: url('http://i.imgur.com/VsrAZoQ.png');
+    background-color: hsl(194, 7%, 30%);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    font-family: helvetica, verdana, arial, sans-serif;
+    color: #444;
+}
+body::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    /*
+    background: url(%%tile%%);
+    */
+    background: url('http://i.imgur.com/teQbNM5.png');
+    opacity: 0.4;
+    top: 0;
+}
+
+/* Pi symbol */
+.debuginfo {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.linkflairlabel, .flair {
+    margin: 0px;
+    margin-right: 4px;
+    padding: 2px 8px;
+    border-radius: 0px;
+    border: 1px solid #e7e7e7;
+    font-size: 10px;
+}
+.side .flair {
+    border-color: #BBB;
+}
+
+/* Drop down container for top, comments, etc. */
+.menuarea {
+    text-align: center;
+    border-bottom: none;
+    padding-top: 12px;
+}
+
+.listing-chooser {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Toolbar Styles */
+#tb-bottombar, #tb-bottombar * {
+    box-sizing: content-box;
+}
+
+#noresults {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 80px;
+    font-size: 25px;
+    font-weight: 100;
+    color: #BF4040;
+}

@@ -1,0 +1,76 @@
+
+/* Moderator Edit flair page */
+
+
+.flair-settings {
+    padding-top: 20px;
+}
+    .flair-settings > h1 {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 300;
+    }
+        .flair-settings > h1 strong {
+            font-weight: 300;
+            text-transform: none;
+        }
+
+    .flair-settings .linefield {
+        margin: 15px auto;
+        padding: 12px;
+        background: #FAFAFA;
+        border: 1px solid #BBB;
+    }
+        .flair-settings .linefield .title {
+            color: #222;
+            font-weight: 300;
+            text-transform: capitalize;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            border-bottom: 1px solid #CCC;
+            padding-bottom: 4px;
+        }
+        .flair-settings .linefield label {
+            font-size: 12px;
+        }
+        .flair-settings .save-button {
+            text-align: center;
+        }
+
+/* Add flair ul */
+.flair-settings + .tabmenu {
+    text-align: center;
+    width: 100%;
+    background: #EEE;
+    margin-top: 50px;
+    display: block;
+    border-bottom: 1px solid #BBB;
+    border-top: 1px solid #BBB;
+}
+    .flair-settings + .tabmenu li.selected {
+        border-color: #2F6C82
+    }
+    .flair-settings + .tabmenu li:hover {
+        background: rgba(0,0,0,0.1);
+    }
+        .flair-settings + .tabmenu li.selected a {
+            color: #B92035 !important;
+        }
+        .flair-settings + .tabmenu li a {
+            color: #333;
+        }
+.tabpane-content {
+    background: #FAFAFA;
+    border: none;
+    padding: 30px;
+    padding-bottom: 50px;
+}
+    .tabpane-content .linefield.flair-jump {
+        margin: 0 auto;
+        margin-bottom: 15px;
+        background: #E4E4E4;
+    }
+        .tabpane-content .linefield.flair-jump .linefield-content {
+            font-size: 12px;
+        }

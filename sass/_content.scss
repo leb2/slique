@@ -1,0 +1,608 @@
+
+body > .content {
+    z-index: 3;
+    position: relative;
+    /*align-self: stretch;*/
+    border-radius: 2px;
+    background: white;
+    width: 100%;
+    margin: 0 0 0 35px !important;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+/* Needed to offset absolutely positioned nav buttons */
+#siteTable {
+    padding-bottom: 45px;
+}
+    #siteTable .thing:first-child {
+        padding-top: 20px;
+    }
+     #siteTable .thing {
+        padding: 8px 20px;
+        margin: 0px;
+
+        display: flex;
+        flex-direction: row;
+        /*align-items: center;*/
+        align-items: start;
+    }
+    .listing-page #siteTable .thing:hover {
+        background: #F2F2F2;
+    }
+        .rank {
+            display: none;
+        }
+        .midcol { /* Votes */
+            min-width: 40px !important;
+            margin: 0px;
+            margin-top: 8px;
+            overflow: visible;
+        }
+            .midcol .score {
+                font-weight: normal;
+                color: #757575;
+            }
+            .midcol .arrow {
+                background: none;
+                color: #666;
+                font-size: 1.4em;
+            }
+            .midcol .arrow::before {
+                content: '➤';
+                display: block;
+            }
+            .midcol .arrow.upmod, .link .score.likes {
+                color: #B37159;
+            }
+            .midcol .arrow.up:hover {
+                color: #D98A6C;
+            }
+            .midcol .arrow.up, .midcol .arrow.upmod {
+                margin-bottom: 10px;
+            }
+            .midcol .arrow.up::before, .midcol .arrow.upmod::before {
+                -ms-transform: rotate(-90deg) scaleY(1.3);
+                -webkit-transform: rotate(-90deg) scaleY(1.3);
+                transform: rotate(-90deg) scaleY(1.3);
+                position: relative;
+                left: -1px;
+            }
+            .midcol .arrow.down:hover {
+                color: #6C6CD9;
+            }
+            .comment .midcol .arrow.down, .comment .midcol .arrow.downmod {
+                position: relative;
+                /*right: -1px;*/
+            }
+            .midcol .arrow.downmod, .link .score.dislikes {
+                color: #5959B3;
+            }
+            .midcol .arrow.down::before, .midcol .arrow.downmod::before {
+                -ms-transform: rotate(90deg) scaleY(1.3);
+                -webkit-transform: rotate(90deg) scaleY(1.3);
+                transform: rotate(90deg) scaleY(1.3);
+            }
+
+        .thumbnail {
+            background: #85a4be;
+            height: 70px !important;
+            min-width: 70px;
+            margin: 0 20px;
+            margin-top: 6px;
+            border-radius: 5px;
+            border: 1px solid #DDD;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+
+        .thumbnail.default, .thumbnail.self, .thumbnail.nsfw {
+            background-image: none;
+        }
+        .thumbnail::after {
+            background: rgba(255,255,255,0.2);
+            pointer-events: none;
+            opacity: 1;
+        }
+        .thumbnail::after, .thumbnail.default::before, .thumbnail.self::before, .thumbnail.nsfw::before {
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            content: "";
+            overflow: hidden;
+        }
+            .thumbnail.default::before, .thumbnail.self::before, .thumbnail.nsfw::before {
+                /* spritesheet */
+                /*
+                background-image: url(%%spritesheet%%);
+                */
+                background-image: url('http://i.imgur.com/ZoRkI3m.png');
+                opacity: 0.9;
+            }
+            .thumbnail:hover::after {
+                background: rgba(255,255,255,0.4);
+            }
+            .thumbnail.default::before {
+                /* Icon Question */
+                background-position: -82px -80px;
+            }
+            .thumbnail.self::before {
+                /* Icon Discussion */
+                background-position: -82px -4px;
+            }
+            .thumbnail.nsfw::before {
+                /* Icon Warn */
+                background-position: -184px -76px;
+            }
+            .thumbnail img {
+                display: inline-block;
+                height: 100%;
+                width: auto;
+            }
+
+        #siteTable .entry {
+            /* for tooltips */
+            overflow: visible;
+
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        html.res #siteTable .entry {
+            padding: 4px 10px 10px 12px;
+            border-radius: 3px;
+        }
+
+            /* When looking at preview of image */
+            .entry > .madeVisible {
+                display: block;
+                width: 100%;
+                margin: 30px;
+            }
+
+            .thing p.title {
+                line-height: 20px;
+                padding: 7px 0;
+                margin: 5px 0 2px;
+                border-bottom: 1px solid #DDD;
+                padding-right: 30px;
+                width: 100%;
+            }
+            .listing-page .thing:hover p.title {
+                padding-right: 110px;
+            }
+                .thing .linkflairlabel, .thing .domain {
+                    display: inline;
+                }
+                .thing .domain, .thing .domain a {
+                    color: #BBB;
+                    font-weight: 100;
+                }
+
+                .thing a.title,
+                .comments-page .thing a.title:visited {
+                    color: #444;
+                }
+                .thing a.title:hover {
+                    color: #5777A8;
+                }
+                .listing-page .thing a.title:visited {
+                    color: #666;
+                }
+                .thing a.title:visited:hover {
+                    color: #8D5BA4;
+                }
+                .thing:hover a.title {
+                    font-size: 16px;
+                }
+
+            /* Preview content button */
+            #siteTable .expando-button {
+                height: 18px;
+                margin-top: 0px;
+                background: transparent;
+                margin-bottom: 0px;
+                cursor: pointer;
+
+                /* Spritesheet */
+                /*
+                background-image: url(%%spritesheet%%);
+                */
+                background-image: url('http://i.imgur.com/ZoRkI3m.png');
+                opacity: 0.6;
+            }
+            #siteTable .expando-button.selftext {
+                /* Comment Icon */
+                background-position: -56px -4px;
+                opacity: 0.7;
+            }
+
+
+            /* Form that shows up after you click report */
+            #siteTable .report-action-form,
+            #siteTable .post-sharing {
+                background: #FAFAFA;
+                border-radius: 0px;
+                padding: 12px;
+                max-width: none;
+                border: 1px solid #BBB;
+                width: 100%;
+                margin: 12px;
+                margin-right: 65%;
+            }
+                .report-action-form .reason-prompt {
+                    padding-bottom: 1px;
+                    display: inline-block;
+                    padding-bottom: 2px;
+                    margin-bottom: 8px;
+                    border-bottom: 1px solid #DDD;
+                    width: 80%;
+                    font-weight: bold;
+                }
+                .report-action-form .reason-prompt:first-letter {
+                    text-transform: uppercase;
+                }
+                .report-action-form .report-action-form label > input[type='radio'] {
+                    margin-right: 12px;
+                }
+                .report-action-form .report-action-form button[type='submit'] {
+                    margin-right: 6px;
+                }
+
+                .post-sharing .post-sharing-main {
+                    pointer-events: none
+                }
+
+
+
+
+
+
+            /* Hide dash separator when text is expanded */
+            #siteTable .expando-button.expanded ~ .flat-list .first::after {
+                display: none;
+            }
+                #siteTable .expando {
+                    width: 100%;
+                }
+                .expando .usertext-body .md {
+                    border: 1px solid #DDD;
+                    border-radius: 0px;
+                }
+            /* First selector for RES */
+            #siteTable .expando-button.image,
+            #siteTable .expando-button.video {
+                /* Camera Icon */
+                background-position: -4px -4px;
+            }
+
+
+
+            .thing .tagline {
+                order: 2;
+                line-height: 18px;
+                line-height: 12px;
+                font-size: 0px;
+                display: flex;
+                align-items: center;
+            }
+
+                /* Remove the word 'submitted' from the tagline */
+                .thing .tagline time,
+                .thing .tagline .author,
+                .thing .tagline .RESUserTag {
+                    font-size: 10px;
+                    position: relative;
+                    top: -1px;
+                }
+                .thing .tagline time::after {
+                    content: 'by';
+                    padding: 0 3px;
+                }
+                /* User Flair */
+                .thing .tagline .flair {
+                    margin-left: 4px;
+                }
+            /* Number of comments */
+
+            .flat-list {
+                text-transform: uppercase;
+            }
+            .listing-page .link .flat-list {
+                padding: 0px;
+                text-transform: uppercase;
+            }
+            .listing-page .flat-list.buttons li.first {
+                text-transform: uppercase;
+            }
+            .entry .buttons li a {
+                font-weight: normal;
+                font-size: 9px;
+            }
+            .listing-page .flat-list.buttons li.first {
+                line-height: 18px;
+            }
+            /*.listing-page .flat-list.buttons li.first::after {*/
+            .flat-list.buttons {
+                margin-right: 14px;
+            }
+            /*.flat-list.buttons::after {
+                content: '';
+                padding: 0 10px;
+                color: #888;
+            }*/
+
+            /* NSFW Tag */
+            .listing-page .flat-list.buttons .nsfw-stamp {
+                border-radius: 1px;
+                color: #B93F4F;
+                border-color: #B93F4F;
+            }
+
+            /* Show/hide corner icons on link hover */
+            .loggedin.listing-page .thing:hover .flat-list.buttons li.share,
+            .loggedin.listing-page .thing:hover .flat-list.buttons li.share ~ li {
+                /*opacity: 0.9;*/
+                opacity: 1;
+            }
+
+            /* Corner button containers */
+            .loggedin.listing-page .flat-list.buttons li.share,
+            .loggedin.listing-page .flat-list.buttons li.share ~ li {
+                opacity: 0;
+
+                white-space: nowrap;
+                width: 15px;
+
+                position: absolute;
+                top: 0px;
+                text-align: center;
+                color: white;
+            }
+
+
+                /* Corner button icons */
+                .loggedin.listing-page .flat-list.buttons li.share::after,
+                .loggedin.listing-page .flat-list.buttons li.share ~ li::after {
+                    opacity: 0.6;
+
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    text-align: center;
+
+                    /* Spritesheet (do not remove comment)*/
+                    /*
+                    background-image: url(%%spritesheet%%);
+                    */
+                    background-image: url('http://i.imgur.com/ZoRkI3m.png');
+                    background-repeat: no-repeat;
+                    content: '';
+                    width: 18px;
+                    height: 18px;
+                    pointer-events: none;
+                    transition: opacity 0.15s;
+
+                }
+
+                /* Icons on hover */
+                .loggedin.listing-page .flat-list.buttons li.share li:hover::after
+                .loggedin.listing-page .flat-list.buttons li.share ~ li:hover::after {
+                    opacity: 1;
+                }
+
+                /* Tooltips */
+                .loggedin.listing-page .flat-list.buttons li.share a,
+                .loggedin.listing-page .flat-list.buttons li.share ~ li a {
+                    opacity: 0;
+
+                    position: absolute;
+                    top: -20px;
+                    left: 0px;
+                    bottom: 0px;
+                    display: block;
+                    height: 40px;
+
+                    color: white;
+                    font-weight: 100;
+                    text-transform: uppercase;
+
+                    /* Can't have correct padding on tooltips without
+                       sacrificing perfect hover on icons */
+                    /*width: 18px;*/
+                }
+
+                /* Tooltips on hover */
+                .loggedin.listing-page .flat-list.buttons li.share a:hover,
+                .loggedin.listing-page .flat-list.buttons li.share ~ li a:hover {
+                    text-decoration: none;
+                    /*opacity: 1;*/
+                    opacity: 0.9;
+                }
+                    /* Background for tooltip */
+                    .loggedin.listing-page .flat-list.buttons li.share a::after,
+                    .loggedin.listing-page .flat-list.buttons li.share ~ li a::after {
+                        content: "";
+                        border-radius: 2px;
+                        background: rgba(0,0,0,0.7);
+                        display: block;
+                        height: 22px;
+                        position: absolute;
+                        top: -3px;
+                        left: -7px;
+                        right: -7px;
+                        padding-right: 10px;
+                        z-index: -1
+                    }
+
+                /* Cancel styles for extra buttons from res / being moderator */
+                .res.loggedin.listing-page .flat-list.buttons li.report-button + li,
+                .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li,
+
+                /* /r/toolbox */
+                .moderator.listing-page .flat-list.buttons li.first + li:not(.share) {
+                    opacity: 1;
+                    position: static;
+                    width: auto;
+                    width: initial;
+                }
+
+                    /* Link Flair Maker */
+                    li .flairselector {
+                        background: #FAFAFA;
+                        padding: 12px !important;
+                    }
+                        li .flairselector h2 {
+                            margin-bottom: 14px;
+                            font-weight: 300;
+                            color: #333;
+                            text-transform: capitalize;
+                            font-size: 14px;
+                            background: none;
+                        }
+                        li .flairselector .linkflair {
+                            text-align: center;
+                        }
+                        li .flairselector .flairoptionpane ul {
+                            width: 100%;
+                        }
+                            li .flairselector .flairoptionpane ul > li,
+                            li .flairselector .flairselection .linkflair {
+                                padding: 6px;
+                            }
+                                li .flairselector .flairoptionpane ul .linkflair a.title,
+                                li .flairselector .flairselection .linkflair a {
+                                    display: inline !important;
+                                }
+
+
+                    /* Cancel styles for mod/res anchor */
+                    .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li a {
+                        opacity: 1;
+                        position: static;
+                        color: initial;
+                        height: initial;
+                        font-weight: initial;
+                        color: #777;
+                    }
+                    .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li a::after {
+                        display: none;
+                    }
+
+                /* Hide icons for extra buttons */
+                .res.loggedin.listing-page .flat-list.buttons li.report-button + li::after,
+                .moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li::after {
+                    display: none;
+                }
+
+
+            /* Share Button Icon */
+            .listing-page .flat-list.buttons li.share::after {
+                background-position: -4px -30px;
+            }
+            /* Star Button Icon */
+            .listing-page .flat-list.buttons li.link-save-button::after,
+            .listing-page .flat-list.buttons li.link-unsave-button::after {
+                background-position: -158px -76px;
+            }
+            /* Flag Button Icon */
+            .listing-page .flat-list.buttons li.report-button::after,
+            .moderator.listing-page .flat-list.buttons li.share + li + li + li::after {
+                background-position: -30px -80px;
+            }
+            /* Close Button Icon */
+            .listing-page .flat-list.buttons li.share + li + li::after {
+                background-position: -30px -4px;
+            }
+
+            /* Share Button */
+            .listing-page .flat-list.buttons li.share {
+                right: 121px;
+            }
+            /* Save Button */
+            .listing-page .flat-list.buttons li.link-save-button,
+            .listing-page .flat-list.buttons li.link-unsave-button {
+                right: 84px;
+            }
+            /* Report (Flag) Button */
+            .listing-page .flat-list.buttons li.report-button,
+            .moderator.listing-page .flat-list.buttons li.share + li + li + li {
+                right: 47px;
+            }
+            /* Hide (Close) Button */
+            .listing-page .flat-list.buttons li.share + li + li {
+                right: 10px;
+            }
+
+
+
+
+
+    /* For promoted page */
+    .content .infobar {
+        border: 1px solid #DDD;
+        background: #FAFAFA;
+        margin: 0 auto;
+        margin-top: 15px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Next page buttons */
+    .content .nav-buttons {
+        height: 50px;
+        line-height: 50px;
+        text-align: right;
+        padding-right: 30px;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+        .content .nav-buttons .nextprev a,
+        .content .nav-buttons .next-suggestions a::before {
+            border-radius: 0px;
+            padding: 4px 12px;
+            font-weight: 100;
+            color: #444;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #AAA;
+            background: #FAFAFA;
+            transition: background 0.3s;
+        }
+        .content .nav-buttons .nextprev a:hover,
+        .content .nav-buttons .next-suggestions a:hover::before {
+            background: #CCC;
+        }
+        .content .nav-buttons .nextprev a:active,
+        .content .nav-buttons .next-suggestions a:active::before {
+            background: #BBB;
+        }
+        .content .nav-buttons .nextprev {
+            text-transform: capitalize;
+            margin-right: 24px;
+        }
+        .content .nav-buttons .nextprev a {
+            text-transform: uppercase;
+        }
+        .content .nav-buttons .next-suggestions a {
+            visibility: hidden;
+            font-size: 0px;
+        }
+            .content .nav-buttons .next-suggestions a::before {
+                visibility: visible;
+                font-size: 12px;
+                content: 'Explore Subreddits';
+                margin-left: 4px;
+            }
