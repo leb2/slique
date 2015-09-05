@@ -1,86 +1,114 @@
 
 .side {
     z-index: 1;
-    background: rgba(255, 255, 255, 0.8);
+    min-width: $sidebar-width;
+    background: rgba(white, 0.8);
     order: 10;
     padding: 20px 25px;
     margin: 40px 35px 40px 0px;
     right: 0px;
-    min-width: 340px;
     margin-top: 40px;
-
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-}
+    box-shadow: 0px 0px 5px 0px rgba(black, 0.3);
 
     #login_login-main {
         margin-top: 12px;
-        background: rgba(255,255,255,0.3);
+        background: rgba(white, 0.3);
         padding: 16px;
         border: 1px solid #BBB;
-    }
-        #login_login-main > input {
-            width: 100%;
+
+        & > input { width: 100%;
             margin: 4px 0;
         }
+    }
 
+    #search {
 
-    .side #search input[type='text'] {
-        border: 1px solid #CCC;
-        padding: 12px;
-        text-transform: uppercase;
-        width: 100%;
-    }
-    .side #search input[type='submit'] {
-        display: none;
-    }
-    .side #search input:focus {
-        border: 1px solid #BBB;
-    }
-    #search #searchexpando {
-        padding: 12px;
-        border: 1px solid #DDD;
-        background: #FAFAFA;
-        margin-bottom: 40px;
-    }
-        #searchexpando p {
-            margin: 0px;
-        }
-        #searchexpando #moresearchinfo {
-            color: #555;
-        }
-            #moresearchinfo #search_hidemore {
-                letter-spacing: 4px;
-            }
-            #moresearchinfo p:first-of-type:first-letter {
-                text-transform: uppercase;
-            }
-            #moresearchinfo p:last-child {
-                text-align: center;
-                margin-top: 10px;
-            }
-            #moresearchinfo dt {
-                margin-top: 12px;
-            }
-
-    .side .sidebox {
-        margin: 12px 0;
-    }
-        /* Post Link Button */
-        .sidebox .morelink {
-            background: rgba(13, 59, 85, 0.6);
-            height: initial;
+        input[type='text'] {
             border: 1px solid #CCC;
-            transition: background 0.4s;
+            padding: 12px;
+            text-transform: uppercase;
+            width: 100%;
         }
-        .sidebox:hover .morelink {
-            background: rgba(13, 59, 85, 0.8);
-        }
-        .sidebox .nub {
+        input[type='submit'] {
             display: none;
         }
-        .sidebox a {
+        input:focus {
+            border: $well-border;
+        }
+
+        #searchexpando {
+            padding: $well-padding;
+            background: $well-bg;
+            border: 1px solid #DDD;
+            margin-bottom: 40px;
+
+            p {
+                margin: 0px;
+            }
+
+            #moresearchinfo {
+                color: #555;
+
+                #search_hidemore {
+                    letter-spacing: 4px;
+                }
+
+                p:first-of-type::first-letter {
+                    text-transform: uppercase;
+                }
+                p:last-child {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                dt {
+                    margin-top: 12px;
+                }
+            }
+
+        }
+    }
+
+    .linkinfo {
+        @include well;
+        margin-top: 12px;
+        color: #444;
+        text-align: center;
+
+        .date {
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #CCC;
+
+            span {
+                font-size: 0px;
+
+                &::before {
+                    font-size: 12px;
+                    content: 'Submitted on ';
+                }
+            }
+        }
+
+        .score {
+            font-weight: 300;
+
+            .number {
+                font-size: 35px;
+            }
+            .word {
+                text-transform: uppercase;
+            }
+        }
+
+        .shortlink > input[type='text'] {
+            border: $well-border;
+        }
+    }
+
+    .sidebox {
+        margin: 12px 0;
+
+        a {
             font-weight: 100;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -88,253 +116,224 @@
             padding: 8px 12px;
         }
 
-        /* If want to force button text */
-        .sidebox a::after {
-            visibility: visible;
-            font-size: 14px;
-            position: absolute;
-            left: 0px;
-            right: 0px;
-            text-align: center;
-        }
-
-        /* Create a new subreddit? */
-        .sidebox.create {
+        // Create subreddit button
+        &.create {
             display: none;
         }
 
+        /* Post Link Button */
+        .morelink {
+            background: rgba(13, 59, 85, 0.6);
+            height: initial;
+            border: 1px solid #CCC;
+            transition: background 0.4s;
+        }
+        &:hover .morelink {
+            background: rgba(13, 59, 85, 0.8);
+        }
 
-        /* Num points, etc, on post page */
-        .side .linkinfo {
-            margin-top: 12px;
-            border: 1px solid #BBB;
-            background: #FAFAFA;
-            border-radius: 0px;
-            color: #444;
+        .nub {
+            display: none;
+        }
+
+    }
+
+    /* Subreddit specific sidebar info */
+    .titlebox {
+        margin-top: 12px;
+
+        .md hr {
+            height: 1px;
+            margin: 12px 0;
+            color: #BBB;
+        }
+        .md blockquote {
+            margin-left: 12px;
+            border-left: 2px solid #BFBFBF;
+        }
+        h1.redditname {
+            overflow: hidden; /* word wrap not allowed */
+            font-size: 24px;
             text-align: center;
-            padding: 12px;
-        }
+            margin: 30px 0 12px;
+            padding-bottom: 2px;
+            border-bottom: $well-border;
+            font-family: $helvetica-stack;
 
-            .linkinfo .date {
-                padding-bottom: 3px;
-                margin-bottom: 5px;
-                border-bottom: 1px solid #CCC;
-            }
-                .linkinfo .date span {
-                    font-size: 0px;
-                }
-                .linkinfo .date span::before {
-                    font-size: 12px;
-                    content: 'Submitted on ';
-                }
-                .side .linkinfo .score {
-                    font-weight: 100;
-                }
-                    .linkinfo .score .number {
-                        font-size: 35px;
-                    }
-                    .linkinfo .score .word {
-                        text-transform: uppercase;
-                    }
-            .side .linkinfo .shortlink > input[type='text']{
-                border: 1px solid #BBB;
-            }
+            a {
+                color: #777;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 100;
+                letter-spacing: 3px;
 
-
-        /* Subreddit specific sidebar info */
-        .side .titlebox {
-            margin-top: 12px;
-        }
-            .titlebox .md hr {
-                height: 1px;
-                margin: 12px 0;
-                color: #BBB;
-            }
-            .titlebox .md blockquote {
-                margin-left: 12px;
-                border-left: 2px solid #BFBFBF;
-            }
-            .titlebox h1.redditname {
-                overflow: hidden; /* word wrap not allowed */
-                font-size: 24px;
-                text-align: center;
-                margin: 30px 0 12px;
-                padding-bottom: 2px;
-                border-bottom: 1px solid #BBB;
-                font-family: helvetica, arial, verdana, sans-serif;
-            }
-                .titlebox h1.redditname a {
-                    color: #777;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    font-weight: 100;
-                    letter-spacing: 3px;
-                }
-                .titlebox h1.redditname a:hover {
+                &:hover {
                     color: black;
                 }
 
-            /* Subscribe / Unsubscribe buttons */
-            .titlebox .fancy-toggle-button {
-                 background: transparent;
-                 height: 25px;
-                 margin: 12px 0;
-                 display: block;
-                 text-align: center;
             }
-                .titlebox .fancy-toggle-button a {
-                    background-image: none;
-                    transition: background 0.3s;
-                    border-radius: 0px;
-                    margin-right: 10px;
-                    padding: 5px 24px;
-                    text-transform: uppercase;
-                    font-weight: 100;
-                    border: none;
+        }
+
+
+        .fancy-toggle-button {
+            background: transparent;
+            height: 25px;
+            margin: 12px 0;
+            display: block;
+            text-align: center;
+
+            a {
+                background-image: none;
+                transition: background 0.3s;
+                border-radius: 0px;
+                margin-right: 10px;
+                padding: 5px 24px;
+                text-transform: uppercase;
+                font-weight: 100;
+                border: none;
+
+                &.active {
+                    display: inline-block;
                 }
-                .titlebox .fancy-toggle-button.subscribe-button a:hover {
+            }
+
+            &.subscribe-button a {
+                background: rgba(134, 36, 53, 0.6);
+
+                &:hover {
                     background: rgba(134, 36, 53, 0.8);
                 }
-                .titlebox .fancy-toggle-button.subscribe-button a {
-                    background: rgba(134, 36, 53, 0.6);
-                    /*border: 1px solid #6F3C44;*/
-                }
-                .titlebox .fancy-toggle-button.unsubscribe-button a:hover {
+            }
+
+            &.unsubscribe-button a {
+                background: rgba(38, 134, 36, 0.6);
+
+                &:hover {
                     background: rgba(38, 134, 36, 0.8);
                 }
-                .titlebox .fancy-toggle-button.unsubscribe-button a {
-                    background: rgba(38, 134, 36, 0.6);
-                    /*border: 1px solid #3d6f3c;*/
-                }
-                .titlebox .fancy-toggle-button a.active {
-                    display: inline-block;
-                }
-
-            /* RES only */
-            .titlebox .subButtons {
-                text-align: center;
-                margin: 12px 0;
             }
-                .titlebox .subButtons span.RESshortcut,
-                .titlebox .subButtons span.REStoggle {
-                    display: inline-block;
-                    padding: 4px 12px;
-                    background: none;
-                    width: auto;
-                    width: initial;
-                    border-radius: 0px;
-                    border: 1px solid #BBB;
-                    background: rgba(255,255,255,0.4);
-                    font-weight: 100;
-                    text-transform: uppercase;
-                    transition: background 0.2s;
-                    margin-bottom: 12px;
-                    color: #555;
-                }
-                .titlebox .subButtons span.RESshortcut:hover,
-                .titlebox .subButtons span.REStoggle:hover {
+        }
+
+        // RES only
+        .subButtons {
+            text-align: center;
+            margin: 12px 0;
+
+            span.RESshortcut, span.REStoggle {
+                display: inline-block;
+                padding: 4px 12px;
+                background: none;
+                width: auto;
+                width: initial;
+                border-radius: 0px;
+                border: 1px solid #BBB;
+                background: rgba(255,255,255,0.4);
+                font-weight: 100;
+                text-transform: uppercase;
+                transition: background 0.2s;
+                margin-bottom: 12px;
+                color: #555;
+
+                &:hover {
                     background: rgba(255,255,255,0.8);
                 }
+            }
+        }
 
+        /* Green dot for online */
+        .users-online {
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
 
-            /* Green dot for online */
-            .titlebox .users-online {
-                display: flex;
-                align-items: center;
-                text-transform: capitalize;
-            }
-                .users-online .number {
-                    margin-right: 4px;
-                }
-                .users-online::before {
-                    background: #50914e;
-                    border-radius: 50%;
-                    height: 10px;
-                    width: 10px;
-                    display: inline-block;
-                }
-            .titlebox form.flairtoggle {
-                background: none;
-            }
-            .titlebox form.flairtoggle,
-            .titlebox .users-online {
-                color: #555;
-                font-size: 11px;
-            }
-            .titlebox > .tagline {
-                padding: 8px 12px;
-                display: table;
-                margin: 0 auto;
-                margin-top: 10px;
-                background: rgba(255,255,255,0.4);
-                border: 1px solid #CCC;
-                margin-bottom: 24px;
+            .number {
+                margin-right: 4px;
             }
 
-            .titlebox .subscribers {
-                display: block;
-                text-align: center;
-                margin-bottom: 18px;
-                float: right;
-                color: #777;
-                font-size: 11px;
+            &::before {
+                background: #50914e;
+                border-radius: 50%;
+                height: 10px;
+                width: 10px;
+                display: inline-block;
             }
+        }
+        form.flairtoggle {
+            background: none;
+        }
+        form.flairtoggle, .users-online {
+            color: #555;
+            font-size: 11px;
+        }
 
-            .titlebox .leavemoderator,
-            .titlebox form.leavecontributor-button {
-                background: #FAFAFA;
-                padding: 12px;
-                font-size: 11px;
-                border: 1px solid #BBB;
-            }
-            .titlebox .leavemoderator {
+        & > .tagline {
+            padding: 8px 12px;
+            display: table;
+            margin: 0 auto;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.4);
+            border: 1px solid #CCC;
+            margin-bottom: 24px;
+        }
+
+        .subscribers {
+            display: block;
+            text-align: center;
+            margin-bottom: 18px;
+            float: right;
+            color: #777;
+            font-size: 11px;
+        }
+
+        .leavemoderator,
+        form.leavecontributor-button {
+            background: $well-bg;
+            padding: 12px;
+            font-size: 11px;
+            border: 1px solid #BBB;
+        }
+        .leavemoderator {
+            margin-top: 12px;
+            border-bottom: none;
+        }
+        form.leavecontributor-button {
+            margin-bottom: 12px;
+            border-top: none;
+        }
+
+        .bottom {
+            margin-top: 10px;
+            border-top: 1px solid #BBB;
+        }
+
+
+        /* All custom sidebar markdown stuff */
+        .usertext {
+            p {
                 margin-top: 12px;
-                border-bottom: none;
-            }
-            .titlebox form.leavecontributor-button {
-                margin-bottom: 12px;
-                border-top: none;
-            }
-            .icon-menu a {
-                background: none;
-            }
-            .titlebox .bottom {
-                margin-top: 10px;
-                border-top: 1px solid #BBB;
             }
 
-
-           /* All custom sidebar markdown stuff */
-            .titlebox .usertext {}
-
-                .titlebox .usertext p {
-                    margin-top: 12px;
+            table {
+                th {
+                    background: rgba(black, 0.05);
                 }
-
-                .titlebox .usertext table {}
-                    .md th {
-                        background: rgba(0,0,0,0.05);
-                    }
-                    .md th, .md td {
-                        border-color: #BBB;
-                    }
-
-                .titlebox pre {
-                    border: 1px solid #BBB;
-                    border-radius: 0px;
-                    background: #FAFAFA;
-                    font-size: 11px;
-                    padding: 12px;
+                th, td {
+                    border-color: $well-border-color;
                 }
+            }
 
-                .titlebox .usertext h2 {
-                    text-align: center;
-                    margin-top: 40px;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                }
-                .titlebox .usertext h2 strong::before,
-                .titlebox .usertext h2 strong::after {
+            pre {
+                @include well;
+            }
+
+            h2 {
+                text-align: center;
+                margin-top: 40px;
+                text-transform: uppercase;
+                font-weight: bold;
+
+                strong::before,
+                strong::after {
                     content: "";
                     height: 50%;
                     width: 30px;
@@ -344,229 +343,240 @@
                     position: relative;
                     top: -6px;;
                 }
+            }
 
 
-                /*** Inline Title Box ***/
+            /*** Inline Title Box ***/
+            h4 {
+                font-size: 15px;
+                background: #DBDBDB;
+                left: 14px;
+                top: 10px;
+                display: inline;
+                padding: 0px 6px;
+                font-weight: 100;
+                line-height: 20px;
+                position: relative;
 
-                .titlebox .usertext h4 {
-                    font-size: 15px;
-                    background: #DBDBDB;
-                    left: 14px;
-                    top: 10px;
-                    display: inline;
-                    padding: 0px 6px;
-                    font-weight: 100;
-                    line-height: 20px;
-                    position: relative;
-                }
-                .titlebox .usertext h4 + blockquote {
+                & + blockquote {
                     border: 1px solid #AAA;
                     margin-left: 0px;
                     padding: 16px;
                     margin-top: 0px;
                     padding-top: 14px;
                     margin-bottom: 10px;
+
+                    blockquote {
+                        max-height: 0px;
+                        transition: max-height 0.4s ease;
+                        overflow: hidden;
+                    }
+
+                    &:hover blockquote {
+                        max-height: 400px;
+                    }
                 }
-                .titlebox .usertext h4 + blockquote blockquote {
-                    max-height: 0px;
-                    transition: max-height 0.4s ease;
-                    overflow: hidden;
-                }
-                .titlebox .usertext h4 + blockquote:hover blockquote {
-                    max-height: 400px;
-                }
+            }
 
+            /*** Custom Buttons ***/
 
+            /* h6 is reserved for buttons, hidden */
+            h6 {
+                display: none;
 
-                /*** Custom Buttons ***/
-
-                /* h6 is reserved for buttons, hidden */
-                h6 {
-                    display: none;
-                }
-
-                /* Button container */
-                .titlebox .usertext h6 + h1,
-                .titlebox .usertext h6 + h2,
-                .titlebox .usertext h6 + h3,
-                .titlebox .usertext h6 + h5 {
+                & + h1, & + h2,
+                & + h3, & + h5 {
                     text-align: center;
                     margin: 20px 0;
                     padding: 0 30px;
                     line-height: initial;
-                }
 
-                /* Button link  */
-                .titlebox .usertext h6 + h1 a,
-                .titlebox .usertext h6 + h2 a,
-                .titlebox .usertext h6 + h3 a,
-                .titlebox .usertext h6 + h5 a {
-                    font-size: 15px;
-                    text-transform: uppercase;
-                    font-weight: 100;
-                    color: #EEE;
-                    display: block;
-                    padding: 12px 24px;
-                    transition: background 0.3s;
-                }
-
-
-                .titlebox .usertext h6 + h5 a {
-                    background: rgba(0,0,0,0.5);
+                    a {
+                        font-size: 15px;
+                        text-transform: uppercase;
+                        font-weight: 100;
+                        color: #EEE;
+                        display: block;
+                        padding: 12px 24px;
+                        transition: background 0.3s;
+                    }
                 }
 
                 /* Black Button */
-                .titlebox .usertext h6 + h5 a:hover {
-                    background: rgba(0,0,0,0.7);
+                & + h5 a {
+                    background: rgba(0,0,0,0.5);
+                    &:hover {
+                        background: rgba(0,0,0,0.7);
+                    }
                 }
 
                 /* Blue Button */
-                .titlebox .usertext h6 + h1 a {
+                & + h1 a {
                     background: rgba(18, 64, 86, 0.6);
-                }
-                .titlebox .usertext h6 + h1 a:hover {
-                    background: rgba(18, 64, 86, 0.7);
+                    &:hover {
+                        background: rgba(18, 64, 86, 0.7);
+                    }
                 }
 
                 /* Green Button */
-                .titlebox .usertext h6 + h2 a {
+                & + h2 a {
                     background: rgba(18, 85, 45, 0.6);
-                }
-                .titlebox .usertext h6 + h2 a:hover {
-                    background: rgba(18, 85, 45, 0.7);
+                    &:hover {
+                        background: rgba(18, 85, 45, 0.7);
+                    }
                 }
 
                 /* Red Button */
-                .titlebox .usertext h6 + h3 a {
+                & + h3 a {
                     background: rgba(85, 18, 18, 0.6);
+                    &:hover {
+                        background: rgba(85, 18, 18, 0.7);
+                    }
                 }
-                .titlebox .usertext h6 + h3 a:hover {
-                    background: rgba(85, 18, 18, 0.7);
-                }
-
-
-
-    .goldvertisement {
-        margin: 50px 0;
-        border: none;
-        box-shadow: none;
-        padding: 10px;
-    }
-
-        .goldvertisement h2 {
-            padding: 4px;
-            text-align: center;
-            border-bottom: 1px solid #AAA;
-            text-transform: uppercase;
-            color: #444;
-            margin-bottom: 10px;
-            font-family: verdana, arial, helvetica, sans-serif;
-        }
-        .goldvertisement .progress {
-        }
-            .goldvertisement .progress .bar {
-                border-radius: 0px;
-                border-color: #A19868;
-            }
-                .goldvertisement .progress .bar span {
-                    background-image: none;
-                    border-radius: 0px;
-                    background-color: #BFB57C;
-                }
-        .goldvertisement .inner {
-            border: none;
-        }
-            .goldvertisement .inner a::before {
-                content: "Support Reddit";
-                font-size: 9px;
-            }
-            .goldvertisement .inner a:hover {
-                background: white;
-            }
-            .goldvertisement .inner a {
-                transition: background 0.3s;
-                box-sizing: content-box;
-                border: 1px solid #BFBFBF;
-                background: #FAFAFA;
-                padding: 3px 12px 2px;
-                height: 16px;
-                line-height: 16px;
-                font-size: 0px;
-
-                margin: 0px;
-                color: #666;
-                text-transform: uppercase;
-                border-radius: 1px;
             }
 
-    .side #ad_main {
+        } // usertext
+    } // titlebox
+
+    #ad_main {
         margin-top: 30px;
     }
 
-    /* Recently viewed links, moderators, etc. */
-    .side .sidecontentbox {
+    .sidecontentbox {
         margin-top: 30px;
-    }
-        /* About moderators */
-        .side .sidecontentbox li.more {
+
+        // About moderators
+        li.more {
             border-top: 1px solid #BBB;
             padding-top: 3px;
             margin-top: 8px;
         }
-        .side .sidecontentbox .linkflairlabel {
+
+        .linkflairlabel {
             display: none;
         }
-        .sidecontentbox .title {
+
+        .title {
             padding: 4px;
             text-align: center;
             border-bottom: 1px solid #AAA;
             margin-bottom: 20px;
             color: #444;
-        }
-            .sidecontentbox .title h1 {
+
+            h1 {
                 color: #444;
             }
-        .sidecontentbox .content {
+        }
+        .content {
             padding: 0px;
             border: 0px;
-        }
-            .sidecontentbox .content .right a {
+
+            .right a {
                 font-size: 0px;
+                &::after {
+                    font-size: 10px;
+                    content: '[ CLEAR ]';
+                }
             }
-            .sidecontentbox .content .right a::after {
-                font-size: 10px;
-                content: '[ CLEAR ]';
+        }
+
+        .midcol .arrow {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        .entry {
+            margin: 6px 0;
+            position: relative;
+            left: -8px;
+            margin-right: 0px;
+        }
+        a.reddit-link-title {
+            font-weight: 100;
+            color: #555;
+            border-bottom: 1px solid #CCC;
+            display: inline-block;
+            padding-bottom: 3px;
+            margin-bottom: 1px;
+            width: 100%;
+
+            &:hover {
+                color: #888;
+            }
+        }
+        .reddit-entry small {
+            font-weight: 100;
+            padding-left: 1px;
+        }
+    }
+
+    .account-activity-box {
+        text-transform: uppercase;
+    }
+    // Buttons on moderator page
+    .icon-menu a {
+        background: none;
+    }
+}
+
+
+
+.goldvertisement {
+    margin: 50px 0;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+
+    h2 {
+        padding: 4px;
+        text-align: center;
+        border-bottom: 1px solid #AAA;
+        text-transform: uppercase;
+        color: #444;
+        margin-bottom: 10px;
+        font-family: verdana, arial, helvetica, sans-serif;
+    }
+
+    .progress {
+
+        .bar {
+            border-radius: 0px;
+            border-color: #A19868;
+
+            span {
+                background-image: none;
+                border-radius: 0px;
+                background-color: #BFB57C;
+            }
+        }
+    }
+
+    .inner {
+        border: none;
+
+        a {
+            transition: background 0.3s;
+            box-sizing: content-box;
+            border: 1px solid #BFBFBF;
+            background: $well-bg;
+            padding: 3px 12px 2px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 0px;
+
+            margin: 0px;
+            color: #666;
+            text-transform: uppercase;
+            border-radius: 1px;
+
+            &::before {
+                content: "Support Reddit";
+                font-size: 9px;
             }
 
-            .sidecontentbox .midcol {
-                /*display: none;*/
+            &:hover {
+                background: white;
             }
-                .sidecontentbox .midcol .arrow {
-                    margin-right: 0px;
-                    margin-left: 0px;
-                }
-            .sidecontentbox .entry {
-                margin: 6px 0;
-                position: relative;
-                left: -8px;
-                margin-right: 0px;
-            }
-                .sidecontentbox a.reddit-link-title {
-                    font-weight: 100;
-                    color: #555;
-                    border-bottom: 1px solid #CCC;
-                    display: inline-block;
-                    padding-bottom: 3px;
-                    margin-bottom: 1px;
-                    width: 100%;
-                }
-                .sidecontentbox a.reddit-link-title:hover {
-                    color: #888;
-                }
-                .sidecontentbox .reddit-entry small {
-                    font-weight: 100;
-                    padding-left: 1px;
-                }
-        .account-activity-box {
-            text-transform: uppercase;
         }
+
+    }
+}

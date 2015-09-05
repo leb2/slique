@@ -1,27 +1,25 @@
-
-/* Moderator Edit flair page */
-
-
+// Moderator edit flair page
 .flair-settings {
     padding-top: 20px;
-}
-    .flair-settings > h1 {
+
+    & > h1 {
         text-align: center;
         text-transform: capitalize;
         font-weight: 300;
-    }
-        .flair-settings > h1 strong {
+
+        strong {
             font-weight: 300;
             text-transform: none;
         }
+    }
 
-    .flair-settings .linefield {
+    .linefield {
         margin: 15px auto;
         padding: 12px;
-        background: #FAFAFA;
+        background: $well-bg;
         border: 1px solid #BBB;
-    }
-        .flair-settings .linefield .title {
+
+        .title {
             color: #222;
             font-weight: 300;
             text-transform: capitalize;
@@ -31,12 +29,16 @@
             border-bottom: 1px solid #CCC;
             padding-bottom: 4px;
         }
-        .flair-settings .linefield label {
-            font-size: 12px;
+
+        label {
+            font-size: $paragraph-text-size;
         }
-        .flair-settings .save-button {
-            text-align: center;
-        }
+    }
+
+    .save-button {
+        text-align: center;
+    }
+}
 
 /* Add flair ul */
 .flair-settings + .tabmenu {
@@ -45,23 +47,27 @@
     background: #EEE;
     margin-top: 50px;
     display: block;
-    border-bottom: 1px solid #BBB;
-    border-top: 1px solid #BBB;
-}
-    .flair-settings + .tabmenu li.selected {
-        border-color: #2F6C82
-    }
-    .flair-settings + .tabmenu li:hover {
-        background: rgba(0,0,0,0.1);
-    }
-        .flair-settings + .tabmenu li.selected a {
+    border-bottom: 1px solid $well-border-color;
+    border-top: 1px solid $well-border-color;
+
+    li.selected {
+        border-color: #2F6C82;
+
+        a {
             color: #B92035 !important;
         }
-        .flair-settings + .tabmenu li a {
+    }
+    li:hover {
+        background: rgba(0,0,0,0.1);
+
+        a {
             color: #333;
         }
+    }
+}
+
 .tabpane-content {
-    background: #FAFAFA;
+    background: $well-bg;
     border: none;
     padding: 30px;
     padding-bottom: 50px;
@@ -72,5 +78,43 @@
         background: #E4E4E4;
     }
         .tabpane-content .linefield.flair-jump .linefield-content {
-            font-size: 12px;
+            font-size: $paragraph-text-size;
         }
+
+
+
+
+
+
+
+/* Link Flair Maker */
+li .flairselector {
+    background: #FAFAFA;
+    padding: 12px !important;
+
+    h2 {
+        margin-bottom: 14px;
+        font-weight: 300;
+        color: #333;
+        text-transform: capitalize;
+        font-size: 14px;
+        background: none;
+    }
+    .linkflair {
+        text-align: center;
+    }
+
+    .flairoptionpane ul {
+        width: 100%;
+    }
+
+    .flairoptionpane ul > li,
+    .flairselection .linkflair {
+        padding: 6px;
+    }
+
+    .flairoptionpane ul .linkflair a.title,
+    .flairselection .linkflair a {
+        display: inline !important;
+    }
+}

@@ -1,39 +1,21 @@
 
-/* --- Comment View --- */
+
+.comments-page .thing a.title:visited {
+    color: #444;
+}
+
 
 .commentarea {
     padding: 12px;
     color: #555;
-}
 
     /* RES */
-    .commentarea .comment-visits-box {
+    .comment-visits-box {
         border: 1px solid #BBB;
         border-radius: 0px;
         background: #FAFAFA;
         padding: 10px 24px;
     }
-
-    .commentarea .usertext-edit {
-        width: 100%;
-        max-width: 500px;
-        margin: 20px auto 60px auto;
-    }
-
-        /* Save and cancel buttons */
-        .commentarea .usertext-buttons button {
-            background: rgba(0,0,0,0.05);
-            font-size: 11px;
-            letter-spacing: 2px;
-            color: #777;
-            margin-top: 0px;
-        }
-        .commentarea .usertext-buttons button:hover {
-            background: rgba(0,0,0,0.15);
-        }
-        .commentarea .usertext-buttons button:active {
-            background: rgba(0,0,0,0.25);
-        }
 
     .panestack-title {
         border-bottom: 1px solid #DDD;
@@ -41,136 +23,175 @@
         text-align: center;
         width: 75%;
         margin: 0 auto;
-    }
-        .panestack-title .title {
+
+        .title {
             font-size: 18px;
             font-weight: 100;
         }
-    .commentarea .menuarea {
-        margin: 12px 0 0 0;
-        font-weight: 100;
-        text-align: center;
-        display: block;
-        overflow: visible;
-    }
-        .commentarea .loadFlat {
-            margin-left: 12px;
-        }
-        .commentarea #REScommentSubToggle {
+
+        #REScommentSubToggle {
             padding: 4px 12px;
             border-radius: 0px;
             background: #FAFAFA;
             transition: background 0.2s;
             color: #666;
             font-weight: normal;
-        }
-            .commentarea #REScommentSubToggle:hover {
+
+            &:hover {
                 background: #DDD;
             }
-        .commentarea .menuarea > .spacer:first-child {
+        }
+    }
+
+    .menuarea {
+        margin: 12px 0 0 0;
+        font-weight: 100;
+        text-align: center;
+        display: block;
+        overflow: visible;
+
+        .loadFlat {
+            margin-left: 12px;
+        }
+
+        & > .spacer:first-child {
             display: block;
             height: 35px;
             width: 100%;
         }
-        .commentarea .menuarea > .spacer + .spacer {
+
+        & > .spacer + .spacer {
             width: 100%;
         }
-        .commentarea .menuarea .toggle .togglebutton,
-        .commentarea #REScommentNavToggle [id^='nav']{
+
+
+        .toggle .togglebutton,
+        #REScommentNavToggle [id^='nav']{
             font-size: 12px;
             font-weight: normal;
             text-transform: capitalize;
             transition: color 0.15s;
-        }
-            .commentarea .menuarea .toggle .togglebutton:hover,
-            .commentarea #REScommentNavToggle [id^='nav']:hover {
+
+            &:hover {
                 color: black;
             }
+        }
 
 
-
-        .menuarea .dropdown-title:first-letter {
-            text-transform: uppercase;
-        }
-        .menuarea .dropdown-title {
-
-        }
-        .menuarea .dropdown {
-            text-transform: uppercase;
-            border: 1px solid #DDD;
-            margin-left: 4px;
-            padding: 5px;
-            padding-left: 12px;
-            text-decoration: none;
-            transition: background 0.2s;
-            background: rgba(0,0,0,0.1);
-        }
-        .menuarea .dropdown:hover {
-            background: rgba(0,0,0,0.2);
-            cursor: pointer;
-        }
-            .menuarea .dropdown .selected {
+        .spacer { // Dropdown
+            .dropdown-title:first-letter {
+                text-transform: uppercase;
+            }
+            .dropdown {
+                text-transform: uppercase;
+                border: 1px solid #DDD;
+                margin-left: 4px;
+                padding: 5px;
+                padding-left: 12px;
                 text-decoration: none;
-                font-weight: normal;
+                transition: background 0.2s;
+                background: rgba(0,0,0,0.1);
+
+                &:hover {
+                    background: rgba(0,0,0,0.2);
+                    cursor: pointer;
+                }
+
+                .selected {
+                    text-decoration: none;
+                    font-weight: normal;
+                }
             }
-        .menuarea .drop-choices {
-            margin-top: 14px;
-            background: transparent;
+            .drop-choices {
+                margin-top: 14px;
+                background: transparent;
+
+                & > *:first-child {
+                    border-top-left-radius: 2px;
+                    border-top-right-radius: 2px;
+                }
+                & > *:last-child {
+                    border-bottom-right-radius: 2px;
+                    border-bottom-left-radius: 2px;
+                }
+                a {
+                    background: rgba(60,60,60,0.9);
+                    padding: 6px 24px;
+                    color: #EEE;
+                    text-transform: capitalize;
+                    text-align: left;
+
+                    &:hover {
+                        background: rgba(60,60,60,0.95);
+                    }
+                }
+            }
         }
-            .menuarea .drop-choices > *:first-child {
-                border-top-left-radius: 2px;
-                border-top-right-radius: 2px;
-            }
-            .menuarea .drop-choices > *:last-child {
-                border-bottom-right-radius: 2px;
-                border-bottom-left-radius: 2px;
-            }
-            .menuarea .drop-choices a {
-                background: rgba(60,60,60,0.9);
-                padding: 6px 24px;
-                color: #EEE;
-                text-transform: capitalize;
-                text-align: left
-            }
-            .menuarea .drop-choices a:hover {
-                background: rgba(60,60,60,0.95);
-            }
+    } // menuarea
+
+    .usertext-edit {
+        width: 100%;
+        max-width: 500px;
+        margin: 20px auto 60px auto;
+
+        /* Save and cancel buttons */
+        .usertext-buttons button {
+            background: rgba(0,0,0,0.05);
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #777;
+            margin-top: 0px;
+        }
+        .usertext-buttons button:hover {
+            background: rgba(0,0,0,0.15);
+        }
+        .usertext-buttons button:active {
+            background: rgba(0,0,0,0.25);
+        }
+    }
+
 
     /* Parent Comments */
-    .commentarea > .sitetable > .comment {
+    & > .sitetable > .comment {
         background: #FAFAFA;
         padding: 12px;
         border-radius: 2px;
         margin: 16px 0;
     }
-        .commentarea .tagline {}
-            .commentarea .tagline > * {
+
+    .comment {
+        border-left: 2px solid #bcc5cc;
+
+        .tagline {
+            font-size: 10px;
+
+            blockquote {
+                color: #777;
+            }
+
+            & > * {
                 vertical-align: middle;
             }
-            .commentarea .tagline .author {
+            .author {
                 font-size: 12px;
                 font-weight: normal;
             }
-            .commentarea .tagline .submitter {
+            .submitter {
                 color: #af882a;
             }
-        .commentarea .comment .child {
+
+            time::after {
+                display: none;
+            }
+        }
+
+        .child {
             border: none;
         }
-        .commentarea .comment {
-            border-left: 2px solid #bcc5cc;
-        }
-            .comment .tagline {
-                font-size: 10px;
-            }
-                .comment .tagline time::after {
-                    display: none;
-                }
-
-    .commentarea blockquote {
-        color: #777;
     }
-    .commentarea .expand {
+
+    .expand {
         font-weight: bold;
         font-size: 10px;
     }
+}

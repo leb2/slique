@@ -7,7 +7,7 @@
     border-bottom: none;
     height: 210px;
     z-index: 2;
-}
+
     #header-bottom-left {
         position: absolute;
         bottom: 0px;
@@ -16,8 +16,10 @@
         /* Tab-bar side 'padding': 25px
            Side margins: 35px
            Sidebar width: 340px */
-        left: 60px; /* Padding + margin */
-        right: 400px; /* Sidebar + margin + padding */
+        // left: 60px; /* Padding + margin */
+        // right: 400px; /* Sidebar + margin + padding */
+        left: $side-margin + $tab-bar-offset;
+        right: $side-margin + $tab-bar-offset + $sidebar-width;
 
         background: rgba(50, 60, 70, 0.8);
         border-top-left-radius: 2px;
@@ -26,14 +28,14 @@
 
         /* Need to push up redditname when no tabs */
         min-height: 48px;
-    }
 
-    /* Tabs being supplied elsewhere */
-    .submit-page #header-bottom-left {
-        visibility: hidden;
-    }
+        /* Tabs being supplied elsewhere on submit page */
+        .submit-page & {
+            visibility: hidden;
+        }
 
-        #header #header-img {
+
+        #header-img {
             visibility: visible;
             position: absolute;
             left: -40px;
@@ -50,12 +52,13 @@
             background-image: url('http://i.imgur.com/ZoRkI3m.png');
             opacity: 0.8;
             transition: opacity 0.2s;
-        }
-        #header #header-img:hover {
-            opacity: 1;
+
+            &:hover {
+                opacity: 1;
+            }
         }
 
-        #header-bottom-left .redditname {
+        .redditname {
             visibility: visible;
             position: absolute;
             height: 80px;
@@ -64,61 +67,26 @@
             left: 0px;
             width: 100%;
             color: white;
-        }
-        #header-bottom-left .redditname a {
-            color: white;
-            font-size: 50px;
-            font-family: helvetica, verdana, arial, sans-serif;
-            font-weight: 100;
-            letter-spacing: 14px;
-            font-variant: small-caps;
-            text-transform: lowercase;
-        }
-        #header-bottom-left .redditname a:hover {
-            text-decoration: none;
-        }
-        #header-bottom-left .redditname a::before {
-            content: '/r/';
-        }
-        ul.tabmenu {
-            font-size: 12px;
-            margin: 0px;
-            display: inline-block;
-        }
-            .tabmenu li {
-                height: 48px;
-                line-height: 48px;
-                padding: 0 8px;
-                margin: 0px;
-                min-width: 60px;
-                display: inline-block;
-                transition: background 0.2s;
-            }
-            .tabmenu li:hover {
-                background: rgba(255, 255, 255, 0.1);
-                border-bottom: 3px solid rgba(255, 255, 255, 0.1);
-            }
-            .tabmenu li.selected {
-                border-bottom: 3px solid #9CD3E6;
-            }
-            .tabmenu li.selected a {
-                background: transparent;
-                border: none;
 
-                /* Important for both submit page and normal page */
-                color: #FF5C72 !important;
-            }
-            .tabmenu li a {
+            a {
+                color: white;
+                font-size: 50px;
+                font-family: $helvetica-stack;
                 font-weight: 100;
-                letter-spacing: 1px;
-                background: transparent;
-                color: #EEE;
-                text-transform: uppercase;
+                letter-spacing: 14px;
+                font-variant: small-caps;
+                text-transform: lowercase;
 
-                display: block;
-                height: 100%;
+                &:hover {
+                    text-decoration: none;
+                }
+
+                &::before {
+                    content: '/r/';
+                }
             }
-
+        }
+    }
 
     #header-bottom-right {
         position: absolute;
@@ -128,36 +96,56 @@
         margin: 10px;
         margin-right: 18px;
         padding: 0px;
-    }
+
+        /* No one needs this right? */
+        .beta-hint[style],
+        .beta-hint {
+            display: none !important;
+        }
+
+        .message-count {
+            background: rgba(255, 92, 92, 0.63);
+        }
+
+        #userbarToggle {
+            border-radius: 0px;
+            background: rgba(60,60,60,0.8);
+            transition: background 0.2s, color 0.2s;
+            border: none;
+            width: 40px;
+            left: -40px;
+            text-align: center;
+            line-height: 35px;
+            padding: 0px;
+            font-size: 40px;
+            font-weight: 100;
+            color: #DDD;
+
+            &:hover {
+                color: #FFF;
+                background: rgba(60,60,60,0.9);
+            }
+        }
 
         /* For RES Users */
-        #header-bottom-right.res-navTop {
+        &.res-navTop {
             background: rgba(40,40,40,0.3);
             margin-right: 0px;
             height: 40px;
             line-height: 40px;
             font-size: 11px;
             font-weight: 100;
-        }
-            #header-bottom-right #userbarToggle {
-                border-radius: 0px;
-                background: rgba(60,60,60,0.8);
-                transition: background 0.2s, color 0.2s;
-                border: none;
-                width: 40px;
-                left: -40px;
-                text-align: center;
-                line-height: 35px;
-                padding: 0px;
-                font-size: 40px;
-                font-weight: 100;
-                color: #DDD;
+
+            * {
+                text-transform: capitalize;
+                font-weight: normal;
             }
-            #header-bottom-right #userbarToggle:hover {
-                color: #FFF;
-                background: rgba(60,60,60,0.9);
+
+            a, a:visited {
+                color: white;
             }
-            #header-bottom-right.res-navTop .separator {
+
+            .separator {
                 margin: 0px 10px;
                 width: 1px;
                 height: 100%;
@@ -165,15 +153,7 @@
                 background: #999;
             }
 
-            #header-bottom-right.res-navTop a,
-            #header-bottom-right.res-navTop a:visited {
-                color: white;
-            }
-            #header-bottom-right.res-navTop * {
-                text-transform: capitalize;
-                font-weight: normal;
-            }
-            #header-bottom-right.res-navTop .message-count {
+            .message-count {
                 border-radius: 0px;
                 width: 30px;
                 text-align: center;
@@ -181,154 +161,139 @@
                 margin-left: 6px;
             }
 
-            #header-bottom-right.res-navTop .user {
+            .user {
                 margin-left: 12px;
             }
-            #header-bottom-right.res-navTop .logout {
+
+            .logout {
                 margin-right: 12px;
             }
-
-
-        /* Use first separator as element to expand menu */
-        #header-bottom-right:not(.res-navTop) .separator {
-            top: 0px;
-            background: rgba(60,60,60,0.9);
-            width: 45px;
-            height: 45px;
-            line-height: 45px;
-            text-align: center;
-            display: block;
-
-            overflow: hidden;
-            font-size: 0px;
-
-            margin: 0px;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            z-index: -1;
-            border-radius: 2px;
-        }
-        #header-bottom-right:not(.res-navTop):hover .separator {
-            background: rgba(60,60,60,1);
-        }
-        #header-bottom-right:not(.res-navTop) .separator::before {
-            content: '☰';
-            color: white;
-
-            font-size: 20px;
         }
 
-        /* All other separators */
-        #header-bottom-right:not(.res-navTop) .separator ~ .separator {
-            display: none;
-            padding: 12px;
-        }
+        &:not(.res-navTop) {
 
-        #header-bottom-right .beta-hint[style],
-        #header-bottom-right .beta-hint {
-            display: none !important;
-        }
-
-        #header-bottom-right:not(.res-navTop):hover > a#modmail,
-        #header-bottom-right:not(.res-navTop):hover > a#mail,
-        #header-bottom-right:not(.res-navTop):hover > ul,
-        #header-bottom-right:not(.res-navTop):hover > .user,
-        #header-bottom-right:not(.res-navTop):hover > form.logout {
-            display: block;
-        }
-
-        #header-bottom-right:not(.res-navTop) > a#mail,
-        #header-bottom-right:not(.res-navTop) > a#modmail,
-        #header-bottom-right:not(.res-navTop) > ul a,
-        #header-bottom-right:not(.res-navTop) > .user a,
-        #header-bottom-right:not(.res-navTop) > form.logout a {
-            padding: 13px 40px;
-            padding-right: 10px;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        #header-bottom-right:not(.res-navTop) > a#mail,
-        #header-bottom-right:not(.res-navTop) > a#modmail,
-        #header-bottom-right:not(.res-navTop) > ul,
-        #header-bottom-right:not(.res-navTop) > .user,
-        #header-bottom-right:not(.res-navTop) > form.logout {
-            display: none;
-
-            margin: 0px;
-            background: rgba(60,60,60,0.9);
-            width: 100%;
-            position: static;
-            text-transform: capitalize;
-        }
-
-        #header-bottom-right:not(.res-navTop) > a#mail:hover,
-        #header-bottom-right:not(.res-navTop) > a#modmail:hover,
-        #header-bottom-right:not(.res-navTop) > ul:hover,
-        #header-bottom-right:not(.res-navTop) > .user:hover,
-        #header-bottom-right:not(.res-navTop) > form.logout:hover {
-            background: rgba(60,60,60,1);
-        }
-
-        #header-bottom-right:not(.res-navTop) #mail, #header-bottom-right:not(.res-navTop) #modmail {
-            text-indent: 0px;
-            height: initial;
-        }
-
-        #header-bottom-right:not(.res-navTop) .user {
-            margin-top: 50px;
-            padding-right: 55px;
-            font-size: 0px;
-        }
-
-            #header-bottom-right:not(.res-navTop) a {
+            a {
                 color: #FFF;
                 font-weight: 100;
                 font-size: 13px;
             }
 
+            .separator {
+                top: 0px;
+                background: rgba(60,60,60,0.9);
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                text-align: center;
+                display: block;
 
+                overflow: hidden;
+                font-size: 0px;
 
-        /* New mail! */
-        #header-bottom-right:not(.res-navTop) > a#mail.havemail {
-            background: rgba(105, 38, 38, 0.6);
+                margin: 0px;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: -1;
+                border-radius: 2px;
+
+                &::before {
+                    content: '☰';
+                    color: white;
+                    font-size: 20px;
+                }
+
+                & ~ .separator {
+                    display: none;
+                    padding: 12px;
+                }
+            }
+            &:hover {
+                .separator {
+                    background: rgba(60,60,60,1);
+                }
+                .message-count {
+                    display: none;
+                }
+            }
+
+            $dropdown-items: "a#modmail", "a#mail", "ul", ".user", "form.logout";
+            $dropdown-anchors: "a#modmail", "a#mail", "ul a", ".user a", "form.logout a";
+
+            @each $anchor in $dropdown-anchors {
+                & > #{$anchor} {
+                    padding: 13px 40px;
+                    padding-right: 10px;
+                    display: inline-block;
+                    text-decoration: none;
+                }
+            }
+
+            @each $item in $dropdown-items {
+                &:hover > #{$item} {
+                    display: block;
+                }
+                & > #{$item} {
+                    display: none;
+                    margin: 0px;
+                    background: rgba(60,60,60,0.9);
+                    width: 100%;
+                    position: static;
+                    text-transform: capitalize;
+                }
+                & > #{$item}:hover {
+                    background: rgba(60,60,60,1);
+                }
+            }
+
+            #mail, #modmail {
+                text-indent: 0px;
+                height: initial;
+            }
+            .user {
+                margin-top: 50px;
+                padding-right: 55px;
+                font-size: 0px;
+            }
+
+            & > a#mail.havemail {
+                background: rgba(105, 38, 38, 0.6);
+
+                &:hover {
+                    background: rgba(105, 38, 38, 0.7);
+                }
+            }
+
         }
-        #header-bottom-right:not(.res-navTop) > a#mail.havemail:hover {
-            background: rgba(105, 38, 38, 0.7);
-        }
-        #header-bottom-right:not(.res-navTop):hover .message-count {
-            display: none;
-        }
-        #header-bottom-right .message-count {
-            background: rgba(255, 92, 92, 0.63);
-        }
+    }
 
-
-
+    // Subreddits lining top
     #sr-header-area {
         background: rgba(0,0,0,0.2);
         border: none;
         padding: 0 12px;
-        height: 24px;
-        line-height: 24px;
-    }
-        #sr-header-area, #sr-header-area a,
-        #sr-header-area .dropdown.srdrop .selected {
+        height: $sr-header-height;
+        line-height: $sr-header-height;
+        color: #AAA;
+
+        a, .dropdown.srdrop .selected {
             color: #AAA;
-            height: 24px;
-            line-height: 24px;
-        }
-        #sr-header-area a:hover, #sr-header-area .dropdown.srdrop .selected:hover {
-            color: #DDD;
+            height: $sr-header-height;
+            line-height: $sr-header-height;
+
+            &:hover {
+                color: #DDD;
+            }
         }
 
         #RESShortcutsEditContainer, #RESShortcutsEditContainer > * {
             background: transparent;
             color: #AAA;
-            height: 24px;
-            line-height: 24px;
+            height: $sr-header-height;
+            line-height: $sr-header-height;
         }
         #RESShortcutsEditContainer > *:hover {
             color: #DDD;
         }
+    }
+}

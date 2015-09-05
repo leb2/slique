@@ -141,20 +141,49 @@ body::before {
     display: none;
 }
 
+ul.tabmenu {
+    font-size: 12px;
+    margin: 0px;
+    display: inline-block;
 
+    li {
+        height: 48px;
+        line-height: 48px;
+        padding: 0 8px;
+        margin: 0px;
+        min-width: 60px;
+        display: inline-block;
+        transition: background 0.2s;
 
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+        }
 
+        &.selected {
+            border-bottom: 3px solid #9CD3E6;
 
+            a {
+                background: transparent;
+                border: none;
 
+                /* Important for both submit page and normal page */
+                color: #FF5C72 !important;
+            }
+        }
 
+        a {
+            font-weight: 100;
+            letter-spacing: 1px;
+            background: transparent;
+            color: #EEE;
+            text-transform: uppercase;
 
-
-
-
-
-
-
-
+            display: block;
+            height: 100%;
+        }
+    }
+}
 
 
 /* Toolbar Styles */

@@ -4,16 +4,30 @@
     left: 0px;
     right: 0px;
     height: 300px;
-}
-    .footer-parent .footer {
+
+    .footer {
         border-radius: 0px;
         border: 1px solid #BBB;
         background: rgba(255,255,255,0.1);
-    }
-        .footer .col {
-            border-color: #666;
+
+        a {
+            color: #7D92B3;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+            &:visited {
+                color: #A27DB3;
+            }
+            &.buygold {
+                font-weight: normal;
+            }
         }
-            .footer .col .title {
+
+        .col {
+            border-color: #666;
+
+            .title {
                 color: #CCC;
                 text-transform: uppercase;
                 font-weight: 100;
@@ -23,15 +37,6 @@
                 margin-bottom: 10px;
                 border-bottom: 1px solid #777;
             }
-            .footer a:first-letter {
-                text-transform: uppercase;
-            }
-            .footer a {
-                color: #7D92B3;
-            }
-            .footer a:visited {
-                color: #A27DB3;
-            }
-            .footer a.buygold {
-                font-weight: normal;
-            }
+        }
+    }
+}

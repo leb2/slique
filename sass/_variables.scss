@@ -1,2 +1,32 @@
 
+
+/* GENERIC VARIABLES */
+$well-bg: #FAFAFA;
+$well-border-color: #BBB;
+$well-border: 1px solid $well-border-color;
+$well-padding: 12px;
+$well-radius: 0px;
+
+
+$paragraph-text-size: 12px;
+
 $helvetica-stack: helvetica, verdana, arial, sans-serif;
+
+
+/* EASY CUSTOMIZATION VARIABLES */
+$side-margin: 35px;
+$tab-bar-offset: 25px;
+$sidebar-width: 340px;
+
+$sr-header-height: 24px;
+$corner-icon-spacing: 37px;
+
+
+/* MIXINS */
+@mixin well {
+    border: $well-border;
+    background: $well-bg;
+    padding: $well-padding;
+    border-radius: $well-radius;
+    font-size: $paragraph-text-size;
+}
