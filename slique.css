@@ -29,6 +29,8 @@ input:focus, textarea:focus {
 
 .md {
     color: #444;
+    font-size: 12px; 
+    font-family: helvetica, verdana, arial, sans-serif;
 }
 .md a, a {
     color: #5777A8;
@@ -426,6 +428,7 @@ body::before {
                 font-weight: 100;
                 font-size: 13px;
             }
+
 
 
         /* New mail! */
@@ -2031,6 +2034,84 @@ body > .content {
 
 
 
+
+/* Wiki Page styles */
+
+.wiki-page {
+
+}
+.wiki-page .infobar + span {
+    display: block;
+    margin-top: 30px;
+}
+    .wiki-page .infobar .wikititle {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-top: 40px;
+    }
+        .wiki-page .infobar + span h1 strong {
+            font-weight: 100;
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+    .wiki-page .pageactions {
+        margin: 0px;
+        text-align: center;
+        width: 100%;
+        border-right: 0px;
+        border-left: 0px;
+        padding: 0px;
+        height: 50px;
+        border-radius: 0px;
+        background: #FAFAFA;
+        height: auto;
+        height: initial;
+    }
+        .wiki-page .pageactions a.wikiaction {
+            margin: 0px;
+            border-radius: 0px;
+            width: 90px;
+            padding: 0px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 300;
+            height: 50px;
+            line-height: 50px;
+        }
+.wiki-page .wiki-page-content {
+    padding: 100px;
+    padding-top: 20px;
+    width: 100%;
+    margin: 0px;
+    font-size: 13px;
+}
+    .wiki-page-content p,
+    .wiki-page-content li,
+    .wiki-page-content em {
+        font-size: 12px;
+        font-family: helvetica, verdana, arial, sans-serif;
+    }
+    .wiki-page-content em {
+        color: #999;
+    }
+    .wiki-page .wiki-page-content .wiki > .toc > ul {
+        background: #FAFAFA;
+        border: 1px solid #BBB;
+        font-size: 13px;
+        max-width: 400px;
+        padding: 16px 34px;
+    }
+        .wiki-page .wiki-page-content .wiki > .toc > ul ul {
+            border-left: 1px solid #CCC;
+        }
+
+
+
+
+
+
+
 /* RES */
 
 /* Tags */
@@ -2106,6 +2187,13 @@ body > .content {
     color: #EEE !important;
 }
 
+/* RES Markdown preview */
+.RESDialogSmall.livepreview {
+    margin-top: 40px;
+}
+.RESDialogSmall.livepreview * {
+    box-sizing: content-box;
+}
 
 
 
@@ -2193,3 +2281,14 @@ body > .content {
         .tabpane-content .linefield.flair-jump .linefield-content {
             font-size: 12px;
         }
+
+
+#noresults {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 80px;
+    font-size: 25px;
+    font-weight: 100;
+    color: #BF4040;
+}
