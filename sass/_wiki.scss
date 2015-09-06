@@ -54,7 +54,7 @@
 
         p, li, em {
             font-size: $paragraph-text-size;
-            font-family: $helvetica-stack;
+            font-family: $default-font-stack;
         }
 
         em {
@@ -62,8 +62,8 @@
         }
 
         .wiki > .toc > ul {
-            background: #FAFAFA;
-            border: 1px solid #BBB;
+            background: $well-bg;
+            border: $well-border;
             font-size: 13px;
             max-width: 400px;
             padding: 16px 34px;

@@ -2,10 +2,10 @@
 .side {
     z-index: 1;
     min-width: $sidebar-width;
-    background: rgba(white, 0.8);
+    background: $side-bg;
     order: 10;
     padding: 20px 25px;
-    margin: 40px 35px 40px 0px;
+    margin: 40px $side-margin 40px 0px;
     right: 0px;
     margin-top: 40px;
     box-shadow: 0px 0px 5px 0px rgba(black, 0.3);
@@ -14,7 +14,7 @@
         margin-top: 12px;
         background: rgba(white, 0.3);
         padding: 16px;
-        border: 1px solid #BBB;
+        border: $well-border;
 
         & > input { width: 100%;
             margin: 4px 0;
@@ -25,7 +25,7 @@
 
         input[type='text'] {
             border: 1px solid #CCC;
-            padding: 12px;
+            padding: $well-padding;
             text-transform: uppercase;
             width: 100%;
         }
@@ -83,7 +83,7 @@
                 font-size: 0px;
 
                 &::before {
-                    font-size: 12px;
+                    font-size: $paragraph-text-size;;
                     content: 'Submitted on ';
                 }
             }
@@ -123,19 +123,18 @@
 
         /* Post Link Button */
         .morelink {
-            background: rgba(13, 59, 85, 0.6);
+            background: transparentize($blue, 0.2);
             height: initial;
-            border: 1px solid #CCC;
+            // border: 1px solid #CCC;
             transition: background 0.4s;
         }
         &:hover .morelink {
-            background: rgba(13, 59, 85, 0.8);
+            background: $blue;
         }
 
         .nub {
             display: none;
         }
-
     }
 
     /* Subreddit specific sidebar info */
@@ -158,7 +157,7 @@
             margin: 30px 0 12px;
             padding-bottom: 2px;
             border-bottom: $well-border;
-            font-family: $helvetica-stack;
+            font-family: $default-font-stack;
 
             a {
                 color: #777;
@@ -226,7 +225,7 @@
                 width: auto;
                 width: initial;
                 border-radius: 0px;
-                border: 1px solid #BBB;
+                border: $well-border;
                 background: rgba(255,255,255,0.4);
                 font-weight: 100;
                 text-transform: uppercase;
@@ -288,9 +287,9 @@
         .leavemoderator,
         form.leavecontributor-button {
             background: $well-bg;
-            padding: 12px;
+            padding: $well-padding;
             font-size: 11px;
-            border: 1px solid #BBB;
+            border: $well-border;
         }
         .leavemoderator {
             margin-top: 12px;
@@ -303,7 +302,7 @@
 
         .bottom {
             margin-top: 10px;
-            border-top: 1px solid #BBB;
+            border-top: 1px solid $well-border-color;
         }
 
 
@@ -404,33 +403,45 @@
 
                 /* Black Button */
                 & + h5 a {
-                    background: rgba(0,0,0,0.5);
+                    // background: rgba(0,0,0,0.5);
+                    background: transparentize($gray, 0.2);
+
                     &:hover {
-                        background: rgba(0,0,0,0.7);
+                        // background: rgba(0,0,0,0.7);
+                        background: $gray;
                     }
                 }
 
                 /* Blue Button */
                 & + h1 a {
-                    background: rgba(18, 64, 86, 0.6);
+                    // background: rgba(18, 64, 86, 0.6);
+                    background: transparentize($blue, 0.2);
+
                     &:hover {
-                        background: rgba(18, 64, 86, 0.7);
+                        // background: rgba(18, 64, 86, 0.7);
+                        background: $blue;
                     }
                 }
 
                 /* Green Button */
                 & + h2 a {
-                    background: rgba(18, 85, 45, 0.6);
+                    // background: rgba(18, 85, 45, 0.6);
+                    background: transparentize($green, 0.2);
+
                     &:hover {
-                        background: rgba(18, 85, 45, 0.7);
+                        // background: rgba(18, 85, 45, 0.7);
+                        background: $green;
                     }
                 }
 
                 /* Red Button */
                 & + h3 a {
-                    background: rgba(85, 18, 18, 0.6);
+                    // background: rgba(85, 18, 18, 0.6);
+                    background: transparentize($red, 0.2);
+
                     &:hover {
-                        background: rgba(85, 18, 18, 0.7);
+                        // background: rgba(85, 18, 18, 0.7);
+                        background: $red;
                     }
                 }
             }
@@ -447,7 +458,7 @@
 
         // About moderators
         li.more {
-            border-top: 1px solid #BBB;
+            border-top: 1px solid $well-border-color;
             padding-top: 3px;
             margin-top: 8px;
         }
@@ -533,7 +544,7 @@
         text-transform: uppercase;
         color: #444;
         margin-bottom: 10px;
-        font-family: verdana, arial, helvetica, sans-serif;
+        font-family: $default-font-stack;
     }
 
     .progress {

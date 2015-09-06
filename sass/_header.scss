@@ -5,21 +5,15 @@
     top: 0px;
     background: transparent;
     border-bottom: none;
-    height: 210px;
+    height: $header-height;
     z-index: 2;
 
     #header-bottom-left {
         position: absolute;
         bottom: 0px;
 
-
-        /* Tab-bar side 'padding': 25px
-           Side margins: 35px
-           Sidebar width: 340px */
-        // left: 60px; /* Padding + margin */
-        // right: 400px; /* Sidebar + margin + padding */
         left: $side-margin + $tab-bar-offset;
-        right: $side-margin + $tab-bar-offset + $sidebar-width;
+        right: $side-margin + $tab-bar-offset + $sidebar-width + $content-side-space;
 
         background: rgba(50, 60, 70, 0.8);
         border-top-left-radius: 2px;
@@ -36,20 +30,17 @@
 
 
         #header-img {
+            @include spritesheet;
+
             visibility: visible;
             position: absolute;
             left: -40px;
             top: -140px;
             width: 64px;
             height: 64px;
+
             background-position: -184px -4px;
             margin-top: 10px;
-
-            /* spritesheet - do not delete comment */
-            /*
-            background-image: url(%%spritesheet%%);
-            */
-            background-image: url('http://i.imgur.com/ZoRkI3m.png');
             opacity: 0.8;
             transition: opacity 0.2s;
 
@@ -71,7 +62,7 @@
             a {
                 color: white;
                 font-size: 50px;
-                font-family: $helvetica-stack;
+                font-family: $default-font-stack;
                 font-weight: 100;
                 letter-spacing: 14px;
                 font-variant: small-caps;
@@ -157,7 +148,7 @@
                 border-radius: 0px;
                 width: 30px;
                 text-align: center;
-                font-size: 12px;
+                font-size: $paragraph-text-size;;
                 margin-left: 6px;
             }
 
@@ -205,7 +196,7 @@
 
                 & ~ .separator {
                     display: none;
-                    padding: 12px;
+                    padding: $well-padding;
                 }
             }
             &:hover {

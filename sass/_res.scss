@@ -6,7 +6,7 @@
 
     h3 {
         height: 40px;
-        background: #FAFAFA;
+        background: $well-bg;
         color: #444;
         font-weight: 300;
     }
@@ -58,7 +58,7 @@
             .toggleOn, .toggleOff {
                 box-sizing: content-box;
                 border-radius: 0px;
-                border: 1px solid #BBB;
+                border: $well-border;
                 transition: background 0.2s;
                 text-transform: uppercase;
                 font-weight: 300;
@@ -77,9 +77,9 @@
 }
 
 /* RES Markdown preview */
-.RESDialogSmall.livepreview {
-    margin-top: 40px;
+.RESDialogSmall.livePreview {
+    margin-top: 20px;
 }
-.RESDialogSmall.livepreview * {
+.RESDialogSmall.livePreview * {
     box-sizing: content-box;
 }

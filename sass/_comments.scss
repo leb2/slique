@@ -5,15 +5,17 @@
 }
 
 
+$comment-buttons-width: 600px;
+
 .commentarea {
-    padding: 12px;
+    padding: $well-padding;
     color: #555;
 
     /* RES */
     .comment-visits-box {
-        border: 1px solid #BBB;
+        border: $well-border;
         border-radius: 0px;
-        background: #FAFAFA;
+        background: $well-bg;
         padding: 10px 24px;
     }
 
@@ -32,7 +34,7 @@
         #REScommentSubToggle {
             padding: 4px 12px;
             border-radius: 0px;
-            background: #FAFAFA;
+            background: $well-bg;
             transition: background 0.2s;
             color: #666;
             font-weight: normal;
@@ -67,7 +69,7 @@
 
         .toggle .togglebutton,
         #REScommentNavToggle [id^='nav']{
-            font-size: 12px;
+            font-size: $paragraph-text-size;;
             font-weight: normal;
             text-transform: capitalize;
             transition: color 0.15s;
@@ -75,6 +77,10 @@
             &:hover {
                 color: black;
             }
+        }
+
+        form.toggle:first-child {
+            margin-left: 0px;
         }
 
 
@@ -153,45 +159,210 @@
 
     /* Parent Comments */
     & > .sitetable > .comment {
-        background: #FAFAFA;
-        padding: 12px;
+        background: $well-bg;
+        padding: $well-padding;
         border-radius: 2px;
-        margin: 16px 0;
+        // margin: 16px 0;
+        margin: 0px !important;
+        overflow: visible;
     }
 
-    .comment {
+    .comment, .comment .comment {
         border-left: 2px solid #bcc5cc;
 
-        .tagline {
-            font-size: 10px;
-
-            blockquote {
-                color: #777;
-            }
-
-            & > * {
-                vertical-align: middle;
-            }
-            .author {
-                font-size: 12px;
-                font-weight: normal;
-            }
-            .submitter {
-                color: #af882a;
-            }
-
-            time::after {
-                display: none;
-            }
-        }
+        // All these importants to counter RES
+        overflow: visible !important;
+        border: none !important;
+        background: none !important;
+        padding: 0px !important;
+        margin: 0px !important;
 
         .child {
-            border: none;
+            margin-left: 20px;
+            margin-top: 0px;
+            border-left: none;
         }
+
+        &.collapsed .entry {
+            // padding-top: 12px;
+            padding-bottom: 14px;
+        }
+
+        & > .entry .tagline::before {
+            content: '';
+            color: #222;
+            font-weight: bold;
+            padding-right: 12px;
+            font-size: 14px;
+            position: relative;
+            display: inline-block;
+            width: 10px;
+        }
+        & > .entry .tagline:hover::before {
+            color: #888;
+        }
+        &.noncollapsed .entry .tagline::before {
+            content: '–';
+        }
+        &.collapsed .entry .tagline::before {
+            content: '+';
+        }
+
+        .entry {
+            position: relative;
+            overflow: visible;
+            padding: 14px 18px 12px 18px;
+            margin: 12px;
+
+            // To show voting arrows
+            margin-left: 40px;
+            background: $well-bg;
+            border-left: 3px solid lighten($blue, 30%);
+
+            .usertext {
+                clear: none;
+                margin-top: 6px;
+
+                .md-container {
+                    display: inline-block;
+                    position: relative;
+
+                    .md {
+                        background: none !important;
+                    }
+                }
+            }
+
+            .tagline {
+                font-size: 10px;
+                line-height: 16px;
+                height: 16px;
+                display: inline-block;
+
+                span, .author, .usertext-edit {
+                    // So it is clickable with the expand anchor filling entry
+                    position: relative;
+                }
+
+                .author.submitter {
+                    padding: 1px 6px;
+                    border-radius: 0px;
+                    font-weight: 100;
+                    background: lighten($blue, 20%) !important;
+                    transition: background 0.15s;
+
+                    &:hover {
+                        background: $blue !important;
+                    }
+                }
+
+                blockquote {
+                    color: #777;
+                }
+
+                & > * {
+                    // vertical-align: middle;
+                }
+                .author {
+                    font-size: $paragraph-text-size;;
+                    font-weight: normal;
+                }
+                .submitter {
+                    color: #af882a;
+                }
+
+                time::after {
+                    display: none;
+                }
+            }
+
+            .flat-list.buttons {
+                position: absolute;
+                top: 5px;
+                right: 0px;
+
+                &::before {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    content: '☰';
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 30px;
+                    height: 30px;
+                    width: 30px;
+                    overflow: hidden;
+                    display: block;
+                    // background: rgba(60,60,60,0.95);
+                    // color: white;
+                    color: #333;
+                    background: rgba(white, 0.8);
+                }
+
+                &:hover::before {
+                    cursor: pointer;
+                    background: rgba(white, 1);
+                }
+
+                & > li {
+                    position: relative;
+                    z-index: 4000;
+                    display: none;
+                    color: white;
+                    padding: 0px;
+                    min-width: 120px;
+
+                    a {
+                        color: #EEE;
+                        font-weight: 300;
+                        background: green;
+                        display: inline-block;
+                        height: 100%;
+                        width: 100%;
+                        background: rgba(60, 60, 60, 0.95);
+                        padding: 6px 18px;
+
+                        &:hover {
+                            text-decoration: none;
+                            background: rgba(90,90,90,0.95);
+                        }
+                    }
+
+
+                    &.first {
+                        margin-top: 35px;
+                    }
+                }
+
+                &:hover {
+
+                    & > li {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    // Not top level comments
+    .comment .comment {
+        margin-left: $comment-indent !important;
     }
 
     .expand {
-        font-weight: bold;
-        font-size: 10px;
+        font-size: 0px;
+
+        position: absolute;
+        font-size: 0px;
+        /* width: 100%; */
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        margin-right: 0px;
+
+        &:hover {
+            background: rgba(gray, 0.1);
+        }
     }
 }

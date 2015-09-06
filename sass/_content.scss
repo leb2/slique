@@ -5,7 +5,7 @@ body > .content {
     border-radius: 2px;
     background: white;
     width: 100%;
-    margin: 0 0 0 35px !important;
+    margin: 0 $content-side-space 0 $side-margin !important;
 
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
@@ -40,6 +40,11 @@ body > .content {
             .res & {
                 padding: 4px 10px 10px 12px;
                 border-radius: 3px;
+            }
+
+            .tagline {
+                position: relative;
+                top: -1px;
             }
 
             /* Preview Content Button */
@@ -82,11 +87,11 @@ body > .content {
             /* Form that shows up after you click report */
             .report-action-form,
             .post-sharing {
-                background: #FAFAFA;
+                background: $well-bg;
                 border-radius: 0px;
-                padding: 12px;
+                padding: $well-padding;
                 max-width: none;
-                border: 1px solid #BBB;
+                border: $well-border;
                 width: 100%;
                 margin: 12px;
                 margin-right: 65%;
@@ -119,7 +124,6 @@ body > .content {
         }
     }
 }
-
 
 
 .thing {
@@ -282,10 +286,8 @@ body > .content {
 
         .tagline {
             order: 2;
-            line-height: 18px;
             line-height: 12px;
             font-size: 0px;
-            display: flex;
             align-items: center;
 
             /* Remove the word 'submitted' from the tagline */
@@ -293,8 +295,8 @@ body > .content {
             .author,
             .RESUserTag {
                 font-size: 10px;
-                position: relative;
-                top: -1px;
+                // position: relative;
+                // top: -1px;
             }
             time::after {
                 content: 'by';
@@ -317,6 +319,7 @@ body > .content {
 
         .flat-list.buttons {
             margin-right: 14px;
+            text-transform: uppercase;
 
             li.first {
                 text-transform: uppercase;
@@ -515,7 +518,7 @@ body > .content {
 /* For promoted page */
 .content .infobar {
     border: 1px solid #DDD;
-    background: #FAFAFA;
+    background: $well-bg;
     margin: 0 auto;
     margin-top: 15px;
     max-width: 500px;
@@ -569,7 +572,7 @@ body > .content {
 
         &::before {
             visibility: visible;
-            font-size: 12px;
+            font-size: $paragraph-text-size;;
             content: 'Explore Subreddits';
             margin-left: 4px;
         }

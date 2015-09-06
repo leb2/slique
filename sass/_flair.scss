@@ -15,9 +15,7 @@
 
     .linefield {
         margin: 15px auto;
-        padding: 12px;
-        background: $well-bg;
-        border: 1px solid #BBB;
+        @include well;
 
         .title {
             color: #222;
@@ -89,7 +87,7 @@
 
 /* Link Flair Maker */
 li .flairselector {
-    background: #FAFAFA;
+    background: $well-bg;
     padding: 12px !important;
 
     h2 {

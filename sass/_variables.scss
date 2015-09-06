@@ -6,20 +6,29 @@ $well-border-color: #BBB;
 $well-border: 1px solid $well-border-color;
 $well-padding: 12px;
 $well-radius: 0px;
-
-
 $paragraph-text-size: 12px;
 
-$helvetica-stack: helvetica, verdana, arial, sans-serif;
+$default-font-stack: helvetica, verdana, arial, sans-serif;
+
+$header-height: 210px;
 
 
-/* EASY CUSTOMIZATION VARIABLES */
 $side-margin: 35px;
 $tab-bar-offset: 25px;
 $sidebar-width: 340px;
 
 $sr-header-height: 24px;
 $corner-icon-spacing: 37px;
+$content-side-space: 0px;
+
+$side-bg: rgba(white, 0.8);
+$background-accent: #474f52;
+$comment-indent: 18px;
+
+$blue: #3c5e6f;
+$red: #6f3c3c;
+$green: #3c6f43;
+$gray: #6e6e6e;
 
 
 /* MIXINS */
@@ -29,4 +38,21 @@ $corner-icon-spacing: 37px;
     padding: $well-padding;
     border-radius: $well-radius;
     font-size: $paragraph-text-size;
+}
+@mixin button {
+    padding: 6px 16px;
+    border-radius: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #DDD;
+    outline: none;
+    box-sizing: content-box;
+    transition: background 0.2s;
+    text-transform: uppercase;
+}
+@mixin spritesheet {
+    /* background-image: url(%%spritesheet%%); */
+    background-image: url('http://i.imgur.com/ZoRkI3m.png');
+    width: 64px;
+    height: 64px;
+
 }

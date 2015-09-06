@@ -27,30 +27,22 @@ input:focus, textarea:focus {
 
 .md {
     color: #444;
-    font-size: 12px;
-    font-family: helvetica, verdana, arial, sans-serif;
+    font-size: $paragraph-text-size;;
+    font-family: $default-font-stack;
 }
 .md a, a {
     color: #5777A8;
 
+}
+a:visited {
+    color: #8D5BA4;
 }
 .md a:hover, a:hover {
     color: hsl(216, 31%, 65%);
 }
 
 button {
-    padding: 6px 16px;
-    border-radius: 0px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #DDD;
-    outline: none;
-    box-sizing: content-box;
-    transition: background 0.2s;
-    text-transform: uppercase;
-}
-
-a:visited {
-    color: #8D5BA4;
+    @include button;
 }
 
 .content textarea, .content input[type=url],
@@ -86,16 +78,16 @@ body {
 
     display: flex;
     align-items: flex-start;
-    padding: 210px 0 350px; /* Same as header and footer heights */
     flex-direction: row;
+    padding: $header-height 0 350px; /* Same as header and footer heights */
     /*
     background: url(%%background%%);
     */
     background: url('http://i.imgur.com/VsrAZoQ.png');
-    background-color: hsl(194, 7%, 30%);
+    background-color: $background-accent;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    font-family: helvetica, verdana, arial, sans-serif;
+    font-family: $default-font-stack;
     color: #444;
 }
 body::before {
@@ -127,7 +119,7 @@ body::before {
     font-size: 10px;
 }
 .side .flair {
-    border-color: #BBB;
+    border-color: $well-border-color;
 }
 
 /* Drop down container for top, comments, etc. */
@@ -142,7 +134,7 @@ body::before {
 }
 
 ul.tabmenu {
-    font-size: 12px;
+    font-size: $paragraph-text-size;;
     margin: 0px;
     display: inline-block;
 
