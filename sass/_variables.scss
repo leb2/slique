@@ -1,6 +1,6 @@
+/* VARIABLES */
 
-
-/* GENERIC VARIABLES */
+// A box that contains text
 $well-bg: #FAFAFA;
 $well-border-color: #BBB;
 $well-border: 1px solid $well-border-color;
@@ -12,18 +12,27 @@ $default-font-stack: helvetica, verdana, arial, sans-serif;
 
 $header-height: 210px;
 
-
+// Space on the sides where the background is visible
 $side-margin: 35px;
+
 $tab-bar-offset: 25px;
 $sidebar-width: 340px;
+$comment-indent: 18px;
 
+// Height of topmost subreddit listing bar
 $sr-header-height: 24px;
+
+// Space between icons on item hover
 $corner-icon-spacing: 37px;
+
+// Space between sidebar and content
 $content-side-space: 0px;
 
 $side-bg: rgba(white, 0.8);
+
+// This color can be partially seen through the tile
 $background-accent: #474f52;
-$comment-indent: 18px;
+
 
 $blue: #3c5e6f;
 $red: #6f3c3c;
@@ -50,9 +59,15 @@ $gray: #6e6e6e;
     text-transform: uppercase;
 }
 @mixin spritesheet {
+    /* Do not remove below comment: */
     /* background-image: url(%%spritesheet%%); */
     background-image: url('http://i.imgur.com/ZoRkI3m.png');
-    width: 64px;
-    height: 64px;
-
+}
+@mixin background-image {
+    /* background: url(%%background%%); */
+    background: url('http://i.imgur.com/VsrAZoQ.png');
+}
+@mixin tile-image {
+    /* background: url(%%tile%%); */
+    background: url('http://i.imgur.com/teQbNM5.png');
 }

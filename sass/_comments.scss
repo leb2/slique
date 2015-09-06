@@ -250,6 +250,7 @@ $comment-buttons-width: 600px;
                     font-weight: 100;
                     background: lighten($blue, 20%) !important;
                     transition: background 0.15s;
+                    color: white;
 
                     &:hover {
                         background: $blue !important;

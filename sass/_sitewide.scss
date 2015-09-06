@@ -76,14 +76,11 @@ button:active, .content textarea:active, .content input[type=url]:active,
 body {
     position: relative;
 
-    display: flex;
-    align-items: flex-start;
+    // display: flex;
+    // align-items: flex-start;
     flex-direction: row;
-    padding: $header-height 0 350px; /* Same as header and footer heights */
-    /*
-    background: url(%%background%%);
-    */
-    background: url('http://i.imgur.com/VsrAZoQ.png');
+    padding: $header-height 0 0; /* Same as header and footer heights */
+    @include background-image;
     background-color: $background-accent;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -95,10 +92,7 @@ body::before {
     width: 100%;
     height: 100%;
     content: "";
-    /*
-    background: url(%%tile%%);
-    */
-    background: url('http://i.imgur.com/teQbNM5.png');
+    @include tile-image;
     opacity: 0.4;
     top: 0;
 }
@@ -137,6 +131,8 @@ ul.tabmenu {
     font-size: $paragraph-text-size;;
     margin: 0px;
     display: inline-block;
+    max-width: 100%;
+    overflow: auto;
 
     li {
         height: 48px;

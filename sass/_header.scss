@@ -23,6 +23,9 @@
         /* Need to push up redditname when no tabs */
         min-height: 48px;
 
+        /* Get rid of nbsp */
+        font-size: 0px;
+
         /* Tabs being supplied elsewhere on submit page */
         .submit-page & {
             visibility: hidden;
