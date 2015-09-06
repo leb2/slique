@@ -3,6 +3,9 @@
 .comments-page .thing a.title:visited {
     color: #444;
 }
+.comments-page > .content {
+    overflow: visible;
+}
 
 
 $comment-buttons-width: 600px;
@@ -219,6 +222,10 @@ $comment-buttons-width: 600px;
             background: $well-bg;
             border-left: 3px solid lighten($blue, 30%);
 
+            .flat-list.buttons {
+                position: relative;
+            }
+
             .usertext {
                 clear: none;
                 margin-top: 6px;
@@ -277,71 +284,6 @@ $comment-buttons-width: 600px;
                 }
             }
 
-            .flat-list.buttons {
-                position: absolute;
-                top: 5px;
-                right: 0px;
-
-                &::before {
-                    position: absolute;
-                    right: 0px;
-                    top: 0px;
-                    content: '☰';
-                    font-size: 14px;
-                    text-align: center;
-                    line-height: 30px;
-                    height: 30px;
-                    width: 30px;
-                    overflow: hidden;
-                    display: block;
-                    // background: rgba(60,60,60,0.95);
-                    // color: white;
-                    color: #333;
-                    background: rgba(white, 0.8);
-                }
-
-                &:hover::before {
-                    cursor: pointer;
-                    background: rgba(white, 1);
-                }
-
-                & > li {
-                    position: relative;
-                    z-index: 4000;
-                    display: none;
-                    color: white;
-                    padding: 0px;
-                    min-width: 120px;
-
-                    a {
-                        color: #EEE;
-                        font-weight: 300;
-                        background: green;
-                        display: inline-block;
-                        height: 100%;
-                        width: 100%;
-                        background: rgba(60, 60, 60, 0.95);
-                        padding: 6px 18px;
-
-                        &:hover {
-                            text-decoration: none;
-                            background: rgba(90,90,90,0.95);
-                        }
-                    }
-
-
-                    &.first {
-                        margin-top: 35px;
-                    }
-                }
-
-                &:hover {
-
-                    & > li {
-                        display: block;
-                    }
-                }
-            }
         }
     }
 
@@ -367,3 +309,73 @@ $comment-buttons-width: 600px;
         }
     }
 }
+
+
+/*
+
+.comment .entry .flat-list.buttons {
+
+    position: absolute;
+    top: 5px;
+    right: 0px;
+
+    &::before {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        content: '☰';
+        font-size: 14px;
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        width: 30px;
+        overflow: hidden;
+        display: block;
+        color: white;
+        background: #AAA;
+    }
+
+    &:hover::before {
+        cursor: pointer;
+        background: #777;
+    }
+
+    & > li {
+        position: relative;
+        z-index: 4000;
+        display: none;
+        color: white;
+        padding: 0px;
+        min-width: 120px;
+
+        a {
+            color: #EEE;
+            font-weight: 300;
+            background: green;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            background: rgba(60, 60, 60, 0.95);
+            padding: 6px 18px;
+
+            &:hover {
+                text-decoration: none;
+                background: rgba(90,90,90,0.95);
+            }
+        }
+
+
+        &.first {
+            margin-top: 35px;
+        }
+    }
+
+    &:hover {
+
+        & > li {
+            display: block;
+        }
+    }
+}
+
+*/
