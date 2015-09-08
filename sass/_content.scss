@@ -38,7 +38,9 @@ body > .content {
             padding-right: 15px;
             display: flex;
             flex-wrap: wrap;
-            margin-left: 120px;
+
+            // In case not flex
+            margin-left: 150px;
 
             .res & {
                 padding: 4px 10px 10px 12px;

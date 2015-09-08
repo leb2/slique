@@ -311,71 +311,69 @@ $comment-buttons-width: 600px;
 }
 
 
-/*
 
-.comment .entry .flat-list.buttons {
+@media (min-height: $mobile-breakpoint) {
+    .comments-page .commentarea .comment .entry .flat-list.buttons {
 
-    position: absolute;
-    top: 5px;
-    right: 0px;
-
-    &::before {
+        padding-left: 12px;
+        padding-bottom: 30px;
         position: absolute;
+        top: 5px;
         right: 0px;
-        top: 0px;
-        content: '☰';
-        font-size: 14px;
-        text-align: center;
-        line-height: 30px;
-        height: 30px;
-        width: 30px;
-        overflow: hidden;
-        display: block;
-        color: white;
-        background: #AAA;
-    }
+        display: flex;
+        flex-direction: column;
 
-    &:hover::before {
-        cursor: pointer;
-        background: #777;
-    }
+        &::before {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            content: '☰';
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            width: 30px;
+            overflow: hidden;
+            display: block;
+            color: white;
+            background: #AAA;
+        }
 
-    & > li {
-        position: relative;
-        z-index: 4000;
-        display: none;
-        color: white;
-        padding: 0px;
-        min-width: 120px;
+        &:hover::before {
+            cursor: pointer;
+            background: #777;
+        }
 
-        a {
-            color: #EEE;
-            font-weight: 300;
-            background: green;
-            display: inline-block;
-            height: 100%;
-            width: 100%;
-            background: rgba(60, 60, 60, 0.95);
-            padding: 6px 18px;
+        & > li {
+            position: relative;
+            top: 35px;
+            z-index: 4000;
+            display: none;
+            color: white;
+            padding: 0px;
+            min-width: 120px;
 
-            &:hover {
-                text-decoration: none;
-                background: rgba(90,90,90,0.95);
+            a {
+                color: #EEE;
+                font-weight: 300;
+                background: green;
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                background: rgba(60, 60, 60, 0.95);
+                padding: 6px 18px;
+
+                &:hover {
+                    text-decoration: none;
+                    background: rgba(90,90,90,0.95);
+                }
             }
         }
 
-
-        &.first {
-            margin-top: 35px;
-        }
-    }
-
-    &:hover {
-
-        & > li {
-            display: block;
+        &:hover {
+            & > li {
+                display: block;
+            }
         }
     }
 }
-
-*/
