@@ -19,9 +19,6 @@ body > .content {
     .thing {
         padding: 8px 20px;
         margin: 0px;
-        // display: flex;
-        // flex-direction: row;
-        // align-items: start;
 
         &:first-child {
             padding-top: 20px;
@@ -34,7 +31,6 @@ body > .content {
         .entry {
             overflow: visible;
             position: relative;
-            // width: 100%;
             padding-right: 15px;
             display: flex;
             flex-wrap: wrap;
@@ -458,7 +454,7 @@ body > .content {
 }
 
 // .res.loggedin.listing-page .flat-list.buttons li.report-button + li::after,
-.moderator.listing-page .flat-list.buttons li.share +li+li+li ~ li::after {
+.listing-page .flat-list.buttons li.share +li+li+li ~ li::after {
     display: none;
 }
 

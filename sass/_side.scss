@@ -126,7 +126,7 @@
         .morelink {
             background: transparentize($blue, 0.2);
             height: initial;
-            // border: 1px solid #CCC;
+            border: none;
             transition: background 0.4s;
         }
         &:hover .morelink {
