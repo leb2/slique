@@ -110,6 +110,12 @@
                 margin-bottom: 10px;
                 font-weight: 100;
                 font-size: 18px;
+                position: relative;
+
+                    .RESCharCounter {
+                        position: absolute;
+                        right: 0px;
+                    }
             }
 
             .tabmenu {
