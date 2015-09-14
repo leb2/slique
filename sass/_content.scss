@@ -6,7 +6,7 @@ body > .content {
     background: white;
     // width: 100%;
     margin: 0 0 0 $side-margin !important;
-    margin-right: $side-margin + $sidebar-width !important;
+    // margin-right: $side-margin + $sidebar-width !important;
 
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     overflow: hidden;
@@ -257,8 +257,10 @@ body > .content {
             padding-right: 30px;
             width: 100%;
 
-            // To account for icons (only on hover?)
-            padding-right: 110px;
+            // To account for icons
+            &:hover {
+                padding-right: 110px;
+            }
 
             a.title {
                 color: #444;
