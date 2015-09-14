@@ -240,6 +240,11 @@ body > .content {
         }
     }
 
+    // To account for icons
+    &:hover .entry .title {
+        padding-right: 110px;
+    }
+
     .entry {
 
         /* When looking at preview of image */
@@ -256,11 +261,6 @@ body > .content {
             border-bottom: 1px solid #DDD;
             padding-right: 30px;
             width: 100%;
-
-            // To account for icons
-            &:hover {
-                padding-right: 110px;
-            }
 
             a.title {
                 color: #444;
