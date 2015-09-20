@@ -11,7 +11,7 @@ gulp.task('build', function() {
     // return gulp.src('./slique.css')
     return gulp.src(sassDir)
 
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
 
         /* Uncomment reddit resources, e.g. background: url(%%image%%); */
         .pipe(replace(/\/\*(?:(?:.|\n)(?:(?!\*\/)))*?(.*%%.*;)(?:.|\n)*?\*\//g,'$1'))
@@ -43,6 +43,9 @@ gulp.task('sass', function() {
 
 gulp.task('watch', function() {
     gulp.watch(sassDir, ['sass']);
+});
+    gulp.task('watch-build', function() {
+    gulp.watch(sassDir, ['sass', 'build']);
 });
 
 

@@ -132,7 +132,7 @@ ul.tabmenu {
     margin: 0px;
     display: inline-block;
     max-width: 100%;
-    overflow: auto;
+    white-space: normal;
 
     li {
         height: 48px;

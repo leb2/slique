@@ -6,7 +6,10 @@ body > .content {
     background: white;
     // width: 100%;
     margin: 0 0 0 $side-margin !important;
-    // margin-right: $side-margin + $sidebar-width !important;
+
+    @media (max-width: $mobile-breakpoint) {
+        margin-left: $side-margin-mobile !important;
+    }
 
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     overflow: hidden;
@@ -18,6 +21,10 @@ body > .content {
 
     .thing {
         padding: 8px 20px;
+
+        @media (max-width: $mobile-breakpoint) {
+            padding: 8px;
+        }
         margin: 0px;
 
         &:first-child {
@@ -37,6 +44,9 @@ body > .content {
 
             // In case not flex
             margin-left: 150px;
+            @media (max-width: $mobile-breakpoint) {
+                margin-left: 120px;
+            }
 
             .res & {
                 padding: 4px 10px 10px 12px;
@@ -186,6 +196,10 @@ body > .content {
         min-width: 70px;
         margin: 0 20px;
         margin-top: 6px;
+
+        @media (max-width: $mobile-breakpoint) {
+            margin: 0 0 6px 0;
+        }
         border-radius: 5px;
         border: 1px solid #DDD;
         overflow: hidden;
@@ -241,8 +255,10 @@ body > .content {
     }
 
     // To account for icons
-    &:hover .entry .title {
-        padding-right: 110px;
+    &:hover .entry {
+        @media (min-width: $mobile-breakpoint) {
+            padding-right: 110px;
+        }
     }
 
     .entry {
@@ -337,233 +353,236 @@ body > .content {
 
 
 
-.loggedin.listing-page .thing {
+@media (min-width: $mobile-breakpoint) {
 
-    /* Show/hide corner icons on link hover */
-    &:hover {
-        .flat-list.buttons {
-            li.share, li.share ~ li {
-                opacity: 1;
+    .loggedin.listing-page .thing {
+
+        /* Show/hide corner icons on link hover */
+        &:hover {
+            .flat-list.buttons {
+                li.share, li.share ~ li {
+                    opacity: 1;
+                }
             }
         }
-    }
 
-    .flat-list.buttons {
+        .flat-list.buttons {
 
-        // Corner button containers
-        li.share, li.share ~ li {
-            opacity: 0;
+            // Corner button containers
+            li.share, li.share ~ li {
+                opacity: 0;
 
-            white-space: nowrap;
-            width: 15px;
-
-            position: absolute;
-            top: 0px;
-            text-align: center;
-            color: white;
-
-            /* Corner button icons */
-            &::after {
-                opacity: 0.6;
+                white-space: nowrap;
+                width: 15px;
 
                 position: absolute;
                 top: 0px;
-                left: 0px;
-                right: 0px;
-                bottom: 0px;
                 text-align: center;
-                @include spritesheet;
-                background-repeat: no-repeat;
-                content: '';
-                width: 18px;
-                height: 18px;
-                pointer-events: none;
-                transition: opacity 0.15s;
-            }
-
-            /* Icons on hover */
-            &:hover::after {
-                opacity: 1;
-            }
-
-            /* Tooltips */
-            a {
-                opacity: 0;
-
-                position: absolute;
-                top: -20px;
-                left: 0px;
-                bottom: 0px;
-                display: block;
-                height: 40px;
-
                 color: white;
-                font-weight: 100;
-                text-transform: uppercase;
 
-                /* Can't have correct padding on tooltips without
-                sacrificing perfect hover on icons */
-                /*width: 18px;*/
+                /* Corner button icons */
+                &::after {
+                    opacity: 0.6;
 
-                &:hover {
-                    text-decoration: none;
-                    opacity: 0.9;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    text-align: center;
+                    @include spritesheet;
+                    background-repeat: no-repeat;
+                    content: '';
+                    width: 18px;
+                    height: 18px;
+                    pointer-events: none;
+                    transition: opacity 0.15s;
                 }
 
-                // Background for tooltips
-                &::after {
-                    content: "";
-                    border-radius: 2px;
-                    background: rgba(0,0,0,0.7);
-                    display: block;
-                    height: 22px;
+                /* Icons on hover */
+                &:hover::after {
+                    opacity: 1;
+                }
+
+                /* Tooltips */
+                a {
+                    opacity: 0;
+
                     position: absolute;
-                    top: -3px;
-                    left: -7px;
-                    right: -7px;
-                    padding-right: 10px;
-                    z-index: -1
+                    top: -20px;
+                    left: 0px;
+                    bottom: 0px;
+                    display: block;
+                    height: 40px;
+
+                    color: white;
+                    font-weight: 100;
+                    text-transform: uppercase;
+
+                    /* Can't have correct padding on tooltips without
+                    sacrificing perfect hover on icons */
+                    /*width: 18px;*/
+
+                    &:hover {
+                        text-decoration: none;
+                        opacity: 0.9;
+                    }
+
+                    // Background for tooltips
+                    &::after {
+                        content: "";
+                        border-radius: 2px;
+                        background: rgba(0,0,0,0.7);
+                        display: block;
+                        height: 22px;
+                        position: absolute;
+                        top: -3px;
+                        left: -7px;
+                        right: -7px;
+                        padding-right: 10px;
+                        z-index: -1
+                    }
                 }
             }
         }
     }
-}
 
 
 
-/* Cancel styles for extra buttons from res / toolbox / being moderator */
-.res.loggedin.listing-page .thing .flat-list.buttons li.report-button + li,
-.moderator.listing-page .thing .flat-list.buttons li.share +li+li+li ~ li,
-.moderator.listing-page .thing .flat-list.buttons li.first + li:not(.share) {
-    opacity: 1;
-    position: static;
-    width: auto;
-    width: initial;
-}
+    /* Cancel styles for extra buttons from res / toolbox / being moderator */
+    .res.loggedin.listing-page .thing .flat-list.buttons li.report-button + li,
+    .moderator.listing-page .thing .flat-list.buttons li.share +li+li+li ~ li,
+    .moderator.listing-page .thing .flat-list.buttons li.first + li:not(.share) {
+        opacity: 1;
+        position: static;
+        width: auto;
+        width: initial;
+    }
 
-/* Cancel styles for mod/res anchor */
-.moderator.listing-page .thing .flat-list.buttons li.share +li+li+li ~ li a {
-    opacity: 1;
-    position: static;
-    color: initial;
-    height: initial;
-    font-weight: initial;
-    color: #777;
+    /* Cancel styles for mod/res anchor */
+    .moderator.listing-page .thing .flat-list.buttons li.share +li+li+li ~ li a {
+        opacity: 1;
+        position: static;
+        color: initial;
+        height: initial;
+        font-weight: initial;
+        color: #777;
 
-    &::after {
+        &::after {
+            display: none;
+        }
+    }
+
+    // .res.loggedin.listing-page .flat-list.buttons li.report-button + li::after,
+    .listing-page .flat-list.buttons li.share +li+li+li ~ li::after {
         display: none;
     }
-}
-
-// .res.loggedin.listing-page .flat-list.buttons li.report-button + li::after,
-.listing-page .flat-list.buttons li.share +li+li+li ~ li::after {
-    display: none;
-}
 
 
-.listing-page .flat-list.buttons li {
+    .listing-page .flat-list.buttons li {
 
-    &.share { /* Share Button */
-        right: 10px + ($corner-icon-spacing * 3);
-        &::after {
-            background-position: -4px -30px;
+        &.share { /* Share Button */
+            right: 10px + ($corner-icon-spacing * 3);
+            &::after {
+                background-position: -4px -30px;
+            }
+        }
+
+        &.link-save-button,
+        &.link-unsave-button { /* Save Button */
+            right: 10px + ($corner-icon-spacing * 2);
+            &::after {
+                background-position: -158px -76px;
+            }
+        }
+
+        &.report-button { /* Report (Flag) Button */
+            right: 10px + $corner-icon-spacing;
+            &::after {
+                background-position: -30px -80px;
+            }
+        }
+
+        &.share + li + li { /* Hide (Close) Button */
+            right: 10px;
+            &::after {
+                background-position: -30px -4px;
+            }
         }
     }
 
-    &.link-save-button,
-    &.link-unsave-button { /* Save Button */
-        right: 10px + ($corner-icon-spacing * 2);
-        &::after {
-            background-position: -158px -76px;
-        }
-    }
 
-    &.report-button { /* Report (Flag) Button */
-        right: 10px + $corner-icon-spacing;
+    // Delete in place of report for moderator
+    .moderator.listing-page .flat-list.buttons li.share + li + li + li {
+        right: 47px;
+
         &::after {
             background-position: -30px -80px;
         }
     }
 
-    &.share + li + li { /* Hide (Close) Button */
-        right: 10px;
-        &::after {
-            background-position: -30px -4px;
-        }
-    }
-}
 
-
-// Delete in place of report for moderator
-.moderator.listing-page .flat-list.buttons li.share + li + li + li {
-    right: 47px;
-
-    &::after {
-        background-position: -30px -80px;
-    }
-}
-
-
-/* For promoted page */
-.content .infobar {
-    border: 1px solid #DDD;
-    background: $well-bg;
-    margin: 0 auto;
-    margin-top: 15px;
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-}
-
-/* Next page buttons */
-.content .nav-buttons {
-    height: 50px;
-    line-height: 50px;
-    text-align: right;
-    padding-right: 30px;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-
-    .nextprev a,
-    .next-suggestions a::before {
-        border-radius: 0px;
-        padding: 4px 12px;
-        font-weight: 100;
-        color: #444;
-        height: 24px;
-        line-height: 24px;
-        border: 1px solid #AAA;
+    /* For promoted page */
+    .content .infobar {
+        border: 1px solid #DDD;
         background: $well-bg;
-        transition: background 0.3s;
-
-    }
-    .nextprev a:hover,
-    .next-suggestions a:hover::before {
-        background: #CCC;
-    }
-    .nextprev a:active,
-    .next-suggestions a:active::before {
-        background: #BBB;
+        margin: 0 auto;
+        margin-top: 15px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
     }
 
-    .nextprev {
-        text-transform: capitalize;
-        margin-right: 24px;
+    /* Next page buttons */
+    .content .nav-buttons {
+        height: 50px;
+        line-height: 50px;
+        text-align: right;
+        padding-right: 30px;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
 
-        a {
-            text-transform: uppercase;
+        .nextprev a,
+        .next-suggestions a::before {
+            border-radius: 0px;
+            padding: 4px 12px;
+            font-weight: 100;
+            color: #444;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #AAA;
+            background: $well-bg;
+            transition: background 0.3s;
+
         }
-    }
-    .next-suggestions a {
-        visibility: hidden;
-        font-size: 0px;
+        .nextprev a:hover,
+        .next-suggestions a:hover::before {
+            background: #CCC;
+        }
+        .nextprev a:active,
+        .next-suggestions a:active::before {
+            background: #BBB;
+        }
 
-        &::before {
-            visibility: visible;
-            font-size: $paragraph-text-size;;
-            content: 'Explore Subreddits';
-            margin-left: 4px;
+        .nextprev {
+            text-transform: capitalize;
+            margin-right: 24px;
+
+            a {
+                text-transform: uppercase;
+            }
+        }
+        .next-suggestions a {
+            visibility: hidden;
+            font-size: 0px;
+
+            &::before {
+                visibility: visible;
+                font-size: $paragraph-text-size;;
+                content: 'Explore Subreddits';
+                margin-left: 4px;
+            }
         }
     }
 }

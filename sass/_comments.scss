@@ -170,7 +170,9 @@ $comment-buttons-width: 600px;
         overflow: visible;
     }
 
-    .comment, .comment .comment {
+    // TODO: Move out of nest to avoid unnecessary compiled css
+    .comment, .comment .comment, .comment .comment .comment,
+    .comment .comment .comment .comment {
         border-left: 2px solid #bcc5cc;
 
         // All these importants to counter RES

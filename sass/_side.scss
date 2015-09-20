@@ -1,7 +1,7 @@
-
 .side {
     z-index: 1;
-    min-width: $sidebar-width;
+    min-width: 0px;
+    width: $sidebar-width;
     background: $side-bg;
     order: 10;
     padding: 20px 25px;
@@ -10,6 +10,11 @@
     margin-top: 40px;
     box-shadow: 0px 0px 5px 0px rgba(black, 0.3);
     position: relative;
+
+    @media (max-width: $mobile-breakpoint) {
+        width: $sidebar-width-mobile;
+        margin-right: $side-margin-mobile;
+    }
 
     #login_login-main {
         margin-top: 12px;
@@ -126,6 +131,7 @@
         .morelink {
             background: transparentize($blue, 0.2);
             height: initial;
+            height: auto;
             border: none;
             transition: background 0.4s;
         }

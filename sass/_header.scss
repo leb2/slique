@@ -15,6 +15,11 @@
         left: $side-margin + $tab-bar-offset;
         right: $side-margin + $tab-bar-offset + $sidebar-width + $content-side-space;
 
+        @media (max-width: $mobile-breakpoint) {
+            right: $side-margin-mobile + $tab-bar-offset-mobile + $sidebar-width-mobile + $content-side-space;
+            left: $side-margin-mobile + $tab-bar-offset-mobile;
+        }
+
         background: rgba(50, 60, 70, 0.8);
         border-top-left-radius: 2px;
         border-top-right-radius: 2px;
@@ -38,7 +43,7 @@
             visibility: visible;
             position: absolute;
             left: -40px;
-            top: -140px;
+            bottom: 115px;
             width: 64px;
             height: 64px;
 
@@ -46,6 +51,10 @@
             margin-top: 10px;
             opacity: 0.8;
             transition: opacity 0.2s;
+
+            @media (max-width: $mobile-breakpoint) {
+                left: 4px;    
+            }
 
             &:hover {
                 opacity: 1;
