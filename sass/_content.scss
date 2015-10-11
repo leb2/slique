@@ -15,6 +15,8 @@ body > .content {
     overflow: hidden;
 }
 
+$tagline-height: 22px;
+
 #siteTable {
     /* Needed to offset absolutely positioned nav buttons */
     padding-bottom: 45px;
@@ -54,8 +56,8 @@ body > .content {
             }
 
             .tagline {
-                position: relative;
-                top: 2px;
+                height: $tagline-height;
+                line-height: $tagline-height;
             }
 
             /* Preview Content Button */
@@ -65,19 +67,26 @@ body > .content {
                 background: transparent;
                 margin-bottom: 0px;
                 cursor: pointer;
-                @include spritesheet;
                 opacity: 0.6;
+                position: relative;
 
                 &.image,
                 &.video {
-                    /* Camera Icon */
-                    background-position: -4px -4px;
+                    @include sprite($icon-play-video);
+                    top: ($tagline-height - $icon-play-video-height) / 2;
+
+                    &:hover {
+                        @include sprite($icon-play-video-filled);
+                    }
                 }
 
                 &.selftext {
-                    /* Comment Icon */
-                    background-position: -56px -4px;
-                    opacity: 0.7;
+                    @include sprite($icon-add-circle);
+                    top: ($tagline-height - $icon-play-video-height) / 2 - 1;
+
+                    &:hover {
+                        @include sprite($icon-add-circle-filled);
+                    }
                 }
             }
 
@@ -147,39 +156,34 @@ body > .content {
             color: #757575;
         }
         .arrow {
-            background: none;
-            color: #666;
-            font-size: 1.4em;
+            opacity: 0.5;
+            transition: opacity 0.3s;
 
-            &::before {
-                content: '➤';
-                display: block;
+            &:hover {
+                opacity: 1;
+            }
+
+            &.up {
+                @include sprite($icon-arrow-up);
+            }
+            &.down {
+                @include sprite($icon-arrow-down);
             }
 
             &.up, &.upmod {
-                margin-bottom: 10px;
-
-                &::before {
-                    -ms-transform: rotate(-90deg) scaleY(1.3);
-                    -webkit-transform: rotate(-90deg) scaleY(1.3);
-                    transform: rotate(-90deg) scaleY(1.3);
-                    position: relative;
-                    left: -1px;
-                }
-                &:hover {
-                    color: #D98A6C;
-                }
+                margin-bottom: 3px;
+            }
+            &.down, &.downmod {
+                margin-top: 3px;
             }
 
-            &.down, &.downmod {
-                &::before {
-                    -ms-transform: rotate(90deg) scaleY(1.3);
-                    -webkit-transform: rotate(90deg) scaleY(1.3);
-                    transform: rotate(90deg) scaleY(1.3);
-                }
-                &:hover {
-                    color: #6C6CD9;
-                }
+            &.upmod {
+                @include sprite($icon-arrow-up-voted);
+                opacity: 1;
+            }
+            &.downmod {
+                @include sprite($icon-arrow-down-voted);
+                opacity: 1;
             }
         }
         .arrow.upmod, .score.likes {
@@ -191,7 +195,7 @@ body > .content {
     }
 
     .thumbnail {
-        background: #85a4be;
+        background: #475866;
         height: 70px !important;
         min-width: 70px;
         margin: 0 20px;
@@ -218,46 +222,34 @@ body > .content {
         }
         &.default, &.self, &.nsfw {
             background-image: none;
-
-            &::before {
-                @include spritesheet;
-                opacity: 0.9;
-            }
         }
 
         &::after {
-            background: rgba(255,255,255,0.2);
+            background: white;
+            opacity: 0;
             pointer-events: none;
-            opacity: 1;
+            transition: opacity 0.2s;
         }
+
         &:hover::after {
-            background: rgba(255,255,255,0.4);
+            opacity: 0.2;
         }
 
         &.default::before {
-            /* Icon Question */
-            background-position: -82px -80px;
+            @include sprite($icon-question);
         }
         &.self::before {
-            /* Icon Discussion */
-            background-position: -82px -4px;
+            @include sprite($icon-discussion);
         }
         &.nsfw::before {
-            /* Icon Warn */
-            background-position: -184px -76px;
+            @include sprite($icon-warn);
         }
+
 
         img {
             display: inline-block;
             height: 100%;
             width: auto;
-        }
-    }
-
-    // To account for icons
-    &:hover .entry {
-        @media (min-width: $mobile-breakpoint) {
-            padding-right: 110px;
         }
     }
 
@@ -314,6 +306,7 @@ body > .content {
             }
             /* User Flair */
             .flair {
+                display: inline;
                 margin-left: 4px;
             }
         }
@@ -330,6 +323,10 @@ body > .content {
         .flat-list.buttons {
             margin-right: 14px;
             text-transform: uppercase;
+            height: $tagline-height;
+            line-height: $tagline-height;
+            padding: 0px;
+
 
             li.first {
                 text-transform: uppercase;
@@ -390,7 +387,7 @@ body > .content {
                     right: 0px;
                     bottom: 0px;
                     text-align: center;
-                    @include spritesheet;
+                    // @include spritesheet;
                     background-repeat: no-repeat;
                     content: '';
                     width: 18px;
@@ -478,35 +475,35 @@ body > .content {
         display: none;
     }
 
-
     .listing-page .flat-list.buttons li {
 
         &.share { /* Share Button */
-            right: 10px + ($corner-icon-spacing * 3);
+            right: 20px + ($corner-icon-spacing * 3);
             &::after {
-                background-position: -4px -30px;
+                // background-position: -4px -30px;
+                @include sprite($icon-share);
             }
         }
 
         &.link-save-button,
         &.link-unsave-button { /* Save Button */
-            right: 10px + ($corner-icon-spacing * 2);
+            right: 20px + ($corner-icon-spacing * 2);
             &::after {
-                background-position: -158px -76px;
+                @include sprite($icon-star);
             }
         }
 
         &.report-button { /* Report (Flag) Button */
-            right: 10px + $corner-icon-spacing;
+            right: 20px + $corner-icon-spacing;
             &::after {
-                background-position: -30px -80px;
+                @include sprite($icon-flag);
             }
         }
 
         &.share + li + li { /* Hide (Close) Button */
-            right: 10px;
+            right: 20px;
             &::after {
-                background-position: -30px -4px;
+                @include sprite($icon-close);
             }
         }
     }
@@ -514,10 +511,11 @@ body > .content {
 
     // Delete in place of report for moderator
     .moderator.listing-page .flat-list.buttons li.share + li + li + li {
-        right: 47px;
+        right: 20px + $corner-icon-spacing;
 
         &::after {
-            background-position: -30px -80px;
+            @include sprite($icon-flag);
+            // background-position: -30px -80px;
         }
     }
 

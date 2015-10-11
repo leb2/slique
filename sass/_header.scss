@@ -38,22 +38,21 @@
 
 
         #header-img {
-            @include spritesheet;
 
             visibility: visible;
             position: absolute;
             left: -40px;
-            bottom: 115px;
+            top: 60px - $header-height;
             width: 64px;
             height: 64px;
 
-            background-position: -184px -4px;
+            @include sprite($icon-social-reddit);
             margin-top: 10px;
             opacity: 0.8;
             transition: opacity 0.2s;
 
             @media (max-width: $mobile-breakpoint) {
-                left: 4px;    
+                left: 4px;
             }
 
             &:hover {

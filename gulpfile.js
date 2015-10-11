@@ -4,8 +4,25 @@ var minifyCss = require('gulp-minify-css');
 var replace = require('gulp-replace');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
+var spritesmith = require('gulp.spritesmith');
 
 var sassDir = './sass/**/*.scss';
+
+gulp.task('sprites', function() {
+    var spriteData = gulp.src('images/Icons/*.png').pipe(spritesmith({
+        imgName: 'spritesheet.png',
+        cssName: '_sprites.scss',
+        algorithm: 'binary-tree',
+        cssVarMap: function (sprite) {
+            sprite.name = 'icon-' + sprite.name;
+        }
+    }));
+
+    spriteData.img.pipe(gulp.dest('./images/')); // output path for the sprite
+    spriteData.css
+        .pipe(replace('spritesheet.png', '%%spritesheet%%'))
+        .pipe(gulp.dest('./sass/')); // output path for the CSS
+});
 
 gulp.task('build', function() {
     // return gulp.src('./slique.css')

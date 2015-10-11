@@ -1,0 +1,301 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$icon-add-circle-filled-name: 'icon-add-circle-filled';
+$icon-add-circle-filled-x: 136px;
+$icon-add-circle-filled-y: 98px;
+$icon-add-circle-filled-offset-x: -136px;
+$icon-add-circle-filled-offset-y: -98px;
+$icon-add-circle-filled-width: 18px;
+$icon-add-circle-filled-height: 18px;
+$icon-add-circle-filled-total-width: 172px;
+$icon-add-circle-filled-total-height: 154px;
+$icon-add-circle-filled-image: '%%spritesheet%%';
+$icon-add-circle-filled: (136px, 98px, -136px, -98px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-add-circle-filled', );
+$icon-add-circle-name: 'icon-add-circle';
+$icon-add-circle-x: 136px;
+$icon-add-circle-y: 116px;
+$icon-add-circle-offset-x: -136px;
+$icon-add-circle-offset-y: -116px;
+$icon-add-circle-width: 18px;
+$icon-add-circle-height: 18px;
+$icon-add-circle-total-width: 172px;
+$icon-add-circle-total-height: 154px;
+$icon-add-circle-image: '%%spritesheet%%';
+$icon-add-circle: (136px, 116px, -136px, -116px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-add-circle', );
+$icon-arrow-down-voted-name: 'icon-arrow-down-voted';
+$icon-arrow-down-voted-x: 136px;
+$icon-arrow-down-voted-y: 0px;
+$icon-arrow-down-voted-offset-x: -136px;
+$icon-arrow-down-voted-offset-y: 0px;
+$icon-arrow-down-voted-width: 18px;
+$icon-arrow-down-voted-height: 20px;
+$icon-arrow-down-voted-total-width: 172px;
+$icon-arrow-down-voted-total-height: 154px;
+$icon-arrow-down-voted-image: '%%spritesheet%%';
+$icon-arrow-down-voted: (136px, 0px, -136px, 0px, 18px, 20px, 172px, 154px, '%%spritesheet%%', 'icon-arrow-down-voted', );
+$icon-arrow-down-name: 'icon-arrow-down';
+$icon-arrow-down-x: 136px;
+$icon-arrow-down-y: 20px;
+$icon-arrow-down-offset-x: -136px;
+$icon-arrow-down-offset-y: -20px;
+$icon-arrow-down-width: 18px;
+$icon-arrow-down-height: 20px;
+$icon-arrow-down-total-width: 172px;
+$icon-arrow-down-total-height: 154px;
+$icon-arrow-down-image: '%%spritesheet%%';
+$icon-arrow-down: (136px, 20px, -136px, -20px, 18px, 20px, 172px, 154px, '%%spritesheet%%', 'icon-arrow-down', );
+$icon-arrow-up-voted-name: 'icon-arrow-up-voted';
+$icon-arrow-up-voted-x: 136px;
+$icon-arrow-up-voted-y: 40px;
+$icon-arrow-up-voted-offset-x: -136px;
+$icon-arrow-up-voted-offset-y: -40px;
+$icon-arrow-up-voted-width: 18px;
+$icon-arrow-up-voted-height: 20px;
+$icon-arrow-up-voted-total-width: 172px;
+$icon-arrow-up-voted-total-height: 154px;
+$icon-arrow-up-voted-image: '%%spritesheet%%';
+$icon-arrow-up-voted: (136px, 40px, -136px, -40px, 18px, 20px, 172px, 154px, '%%spritesheet%%', 'icon-arrow-up-voted', );
+$icon-arrow-up-name: 'icon-arrow-up';
+$icon-arrow-up-x: 136px;
+$icon-arrow-up-y: 60px;
+$icon-arrow-up-offset-x: -136px;
+$icon-arrow-up-offset-y: -60px;
+$icon-arrow-up-width: 18px;
+$icon-arrow-up-height: 20px;
+$icon-arrow-up-total-width: 172px;
+$icon-arrow-up-total-height: 154px;
+$icon-arrow-up-image: '%%spritesheet%%';
+$icon-arrow-up: (136px, 60px, -136px, -60px, 18px, 20px, 172px, 154px, '%%spritesheet%%', 'icon-arrow-up', );
+$icon-camera-name: 'icon-camera';
+$icon-camera-x: 72px;
+$icon-camera-y: 136px;
+$icon-camera-offset-x: -72px;
+$icon-camera-offset-y: -136px;
+$icon-camera-width: 18px;
+$icon-camera-height: 18px;
+$icon-camera-total-width: 172px;
+$icon-camera-total-height: 154px;
+$icon-camera-image: '%%spritesheet%%';
+$icon-camera: (72px, 136px, -72px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-camera', );
+$icon-close-name: 'icon-close';
+$icon-close-x: 126px;
+$icon-close-y: 136px;
+$icon-close-offset-x: -126px;
+$icon-close-offset-y: -136px;
+$icon-close-width: 18px;
+$icon-close-height: 18px;
+$icon-close-total-width: 172px;
+$icon-close-total-height: 154px;
+$icon-close-image: '%%spritesheet%%';
+$icon-close: (126px, 136px, -126px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-close', );
+$icon-comment-name: 'icon-comment';
+$icon-comment-x: 136px;
+$icon-comment-y: 80px;
+$icon-comment-offset-x: -136px;
+$icon-comment-offset-y: -80px;
+$icon-comment-width: 18px;
+$icon-comment-height: 18px;
+$icon-comment-total-width: 172px;
+$icon-comment-total-height: 154px;
+$icon-comment-image: '%%spritesheet%%';
+$icon-comment: (136px, 80px, -136px, -80px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-comment', );
+$icon-discussion-name: 'icon-discussion';
+$icon-discussion-x: 68px;
+$icon-discussion-y: 0px;
+$icon-discussion-offset-x: -68px;
+$icon-discussion-offset-y: 0px;
+$icon-discussion-width: 68px;
+$icon-discussion-height: 68px;
+$icon-discussion-total-width: 172px;
+$icon-discussion-total-height: 154px;
+$icon-discussion-image: '%%spritesheet%%';
+$icon-discussion: (68px, 0px, -68px, 0px, 68px, 68px, 172px, 154px, '%%spritesheet%%', 'icon-discussion', );
+$icon-email-name: 'icon-email';
+$icon-email-x: 154px;
+$icon-email-y: 18px;
+$icon-email-offset-x: -154px;
+$icon-email-offset-y: -18px;
+$icon-email-width: 18px;
+$icon-email-height: 18px;
+$icon-email-total-width: 172px;
+$icon-email-total-height: 154px;
+$icon-email-image: '%%spritesheet%%';
+$icon-email: (154px, 18px, -154px, -18px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-email', );
+$icon-flag-name: 'icon-flag';
+$icon-flag-x: 0px;
+$icon-flag-y: 136px;
+$icon-flag-offset-x: 0px;
+$icon-flag-offset-y: -136px;
+$icon-flag-width: 18px;
+$icon-flag-height: 18px;
+$icon-flag-total-width: 172px;
+$icon-flag-total-height: 154px;
+$icon-flag-image: '%%spritesheet%%';
+$icon-flag: (0px, 136px, 0px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-flag', );
+$icon-play-video-filled-name: 'icon-play-video-filled';
+$icon-play-video-filled-x: 18px;
+$icon-play-video-filled-y: 136px;
+$icon-play-video-filled-offset-x: -18px;
+$icon-play-video-filled-offset-y: -136px;
+$icon-play-video-filled-width: 18px;
+$icon-play-video-filled-height: 18px;
+$icon-play-video-filled-total-width: 172px;
+$icon-play-video-filled-total-height: 154px;
+$icon-play-video-filled-image: '%%spritesheet%%';
+$icon-play-video-filled: (18px, 136px, -18px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-play-video-filled', );
+$icon-play-video-name: 'icon-play-video';
+$icon-play-video-x: 36px;
+$icon-play-video-y: 136px;
+$icon-play-video-offset-x: -36px;
+$icon-play-video-offset-y: -136px;
+$icon-play-video-width: 18px;
+$icon-play-video-height: 18px;
+$icon-play-video-total-width: 172px;
+$icon-play-video-total-height: 154px;
+$icon-play-video-image: '%%spritesheet%%';
+$icon-play-video: (36px, 136px, -36px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-play-video', );
+$icon-power-name: 'icon-power';
+$icon-power-x: 54px;
+$icon-power-y: 136px;
+$icon-power-offset-x: -54px;
+$icon-power-offset-y: -136px;
+$icon-power-width: 18px;
+$icon-power-height: 18px;
+$icon-power-total-width: 172px;
+$icon-power-total-height: 154px;
+$icon-power-image: '%%spritesheet%%';
+$icon-power: (54px, 136px, -54px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-power', );
+$icon-question-name: 'icon-question';
+$icon-question-x: 0px;
+$icon-question-y: 68px;
+$icon-question-offset-x: 0px;
+$icon-question-offset-y: -68px;
+$icon-question-width: 68px;
+$icon-question-height: 68px;
+$icon-question-total-width: 172px;
+$icon-question-total-height: 154px;
+$icon-question-image: '%%spritesheet%%';
+$icon-question: (0px, 68px, 0px, -68px, 68px, 68px, 172px, 154px, '%%spritesheet%%', 'icon-question', );
+$icon-settings-name: 'icon-settings';
+$icon-settings-x: 90px;
+$icon-settings-y: 136px;
+$icon-settings-offset-x: -90px;
+$icon-settings-offset-y: -136px;
+$icon-settings-width: 18px;
+$icon-settings-height: 18px;
+$icon-settings-total-width: 172px;
+$icon-settings-total-height: 154px;
+$icon-settings-image: '%%spritesheet%%';
+$icon-settings: (90px, 136px, -90px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-settings', );
+$icon-share-name: 'icon-share';
+$icon-share-x: 108px;
+$icon-share-y: 136px;
+$icon-share-offset-x: -108px;
+$icon-share-offset-y: -136px;
+$icon-share-width: 18px;
+$icon-share-height: 18px;
+$icon-share-total-width: 172px;
+$icon-share-total-height: 154px;
+$icon-share-image: '%%spritesheet%%';
+$icon-share: (108px, 136px, -108px, -136px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-share', );
+$icon-social-reddit-name: 'icon-social-reddit';
+$icon-social-reddit-x: 68px;
+$icon-social-reddit-y: 68px;
+$icon-social-reddit-offset-x: -68px;
+$icon-social-reddit-offset-y: -68px;
+$icon-social-reddit-width: 64px;
+$icon-social-reddit-height: 64px;
+$icon-social-reddit-total-width: 172px;
+$icon-social-reddit-total-height: 154px;
+$icon-social-reddit-image: '%%spritesheet%%';
+$icon-social-reddit: (68px, 68px, -68px, -68px, 64px, 64px, 172px, 154px, '%%spritesheet%%', 'icon-social-reddit', );
+$icon-star-name: 'icon-star';
+$icon-star-x: 154px;
+$icon-star-y: 0px;
+$icon-star-offset-x: -154px;
+$icon-star-offset-y: 0px;
+$icon-star-width: 18px;
+$icon-star-height: 18px;
+$icon-star-total-width: 172px;
+$icon-star-total-height: 154px;
+$icon-star-image: '%%spritesheet%%';
+$icon-star: (154px, 0px, -154px, 0px, 18px, 18px, 172px, 154px, '%%spritesheet%%', 'icon-star', );
+$icon-warn-name: 'icon-warn';
+$icon-warn-x: 0px;
+$icon-warn-y: 0px;
+$icon-warn-offset-x: 0px;
+$icon-warn-offset-y: 0px;
+$icon-warn-width: 68px;
+$icon-warn-height: 68px;
+$icon-warn-total-width: 172px;
+$icon-warn-total-height: 154px;
+$icon-warn-image: '%%spritesheet%%';
+$icon-warn: (0px, 0px, 0px, 0px, 68px, 68px, 172px, 154px, '%%spritesheet%%', 'icon-warn', );
+$spritesheet-width: 172px;
+$spritesheet-height: 154px;
+$spritesheet-image: '%%spritesheet%%';
+$spritesheet-sprites: ($icon-add-circle-filled, $icon-add-circle, $icon-arrow-down-voted, $icon-arrow-down, $icon-arrow-up-voted, $icon-arrow-up, $icon-camera, $icon-close, $icon-comment, $icon-discussion, $icon-email, $icon-flag, $icon-play-video-filled, $icon-play-video, $icon-power, $icon-question, $icon-settings, $icon-share, $icon-social-reddit, $icon-star, $icon-warn, );
+$spritesheet: (172px, 154px, '%%spritesheet%%', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
