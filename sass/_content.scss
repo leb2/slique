@@ -327,7 +327,6 @@ $tagline-height: 22px;
             line-height: $tagline-height;
             padding: 0px;
 
-
             li.first {
                 text-transform: uppercase;
                 line-height: 18px;
@@ -343,6 +342,55 @@ $tagline-height: 22px;
                 border-radius: 1px;
                 color: #B93F4F;
                 border-color: #B93F4F;
+            }
+
+            .option.error.active {
+                background: $well-bg;
+                padding: 20px;
+                background: rgb(250, 250, 250) none repeat scroll 0% 0%;
+                padding: 12px;
+                display: block;
+                z-index: 999;
+                opacity: 1;
+                position: relative;
+                color: rgb(51, 51, 51);
+                font-weight: 300;
+                font-size: 0px;
+                position: absolute;
+                border: $well-border;
+
+                &::before {
+                    font-size: 14px;
+                    content: "Are you sure?";
+                    margin-bottom: 12px;
+                    display: block;
+                }
+
+                .yes, .no {
+                    display: inline;
+                    margin: 0px 8px;
+                    font-size: 12px;
+
+                    &:hover {
+                        color: black;
+                    }
+
+                    // Get rid of background on tooltip
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+            .del-button {
+                .option.error.active {
+                    right: 0px;
+
+                    .yes, .no {
+                        opacity: 1;
+                        color: #333;
+                        position: static;
+                    }
+                }
             }
         }
     }
