@@ -42,7 +42,7 @@ gulp.task('build', function() {
 
         /* Remove not allowed webkit flex prefixes from autoprefixer */
         // .pipe(replace(/.*-webkit-box(-(align|orient|ordinal|direction))?.*/g,''))
-        .pipe(replace(/.*-webkit-box.*/g,''))
+        .pipe(replace(/.*-webkit-box.*;/g,''))
 
 
         .pipe(minifyCss())
