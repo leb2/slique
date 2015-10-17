@@ -171,9 +171,9 @@ $comment-buttons-width: 600px;
     }
 
     // TODO: Move out of nest to avoid unnecessary compiled css
-    .comment, .comment .comment, .comment .comment .comment,
-    .comment .comment .comment .comment {
+    .comment {
         border-left: 2px solid #bcc5cc;
+
 
         // All these importants to counter RES
         overflow: visible !important;
@@ -193,25 +193,26 @@ $comment-buttons-width: 600px;
             padding-bottom: 14px;
         }
 
-        & > .entry .tagline::before {
-            content: '';
-            color: #222;
-            font-weight: bold;
-            padding-right: 12px;
-            font-size: 14px;
-            position: relative;
-            display: inline-block;
-            width: 10px;
-        }
-        & > .entry .tagline:hover::before {
-            color: #888;
-        }
-        &.noncollapsed .entry .tagline::before {
-            content: '–';
-        }
-        &.collapsed .entry .tagline::before {
-            content: '+';
-        }
+        // Replacement collapse / expand button
+        // & > .entry .tagline::before {
+        //     content: '';
+        //     color: #222;
+        //     font-weight: bold;
+        //     padding-right: 12px;
+        //     font-size: 14px;
+        //     position: relative;
+        //     display: inline-block;
+        //     width: 10px;
+        // }
+        // & > .entry .tagline:hover::before {
+        //     color: #888;
+        // }
+        // &.noncollapsed .entry .tagline::before {
+        //     content: '–';
+        // }
+        // &.collapsed .entry .tagline::before {
+        //     content: '+';
+        // }
 
         .entry {
             position: relative;
@@ -288,28 +289,34 @@ $comment-buttons-width: 600px;
 
         }
     }
-
+    
     // Not top level comments
     .comment .comment {
         margin-left: $comment-indent !important;
     }
 
     .expand {
-        font-size: 0px;
-
-        position: absolute;
-        font-size: 0px;
-        /* width: 100%; */
-        left: 0px;
-        top: 0px;
-        bottom: 0px;
-        right: 0px;
-        margin-right: 0px;
-
-        &:hover {
-            background: rgba(gray, 0.1);
-        }
+        margin-right: 4px;
     }
+
+
+    // This makes it so the whole comment box is clickable for expanding
+    // .expand {
+    //     font-size: 0px;
+    //
+    //     position: absolute;
+    //     font-size: 0px;
+    //     /* width: 100%; */
+    //     left: 0px;
+    //     top: 0px;
+    //     bottom: 0px;
+    //     right: 0px;
+    //     margin-right: 0px;
+    //
+    //     &:hover {
+    //         background: rgba(gray, 0.1);
+    //     }
+    // }
 }
 
 
