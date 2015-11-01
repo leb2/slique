@@ -173,100 +173,110 @@
         }
 
         // Hover dropdown menu
-        &:not(.res-navTop) {
 
-            a {
-                color: #FFF;
-                font-weight: 100;
-                font-size: 13px;
-            }
+        @media (max-width: $mobile-breakpoint - 1) {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 0px;
+        }
 
-            .separator {
-                top: 0px;
-                background: rgba(60,60,60,0.9);
-                width: 45px;
-                height: 45px;
-                line-height: 45px;
-                text-align: center;
-                display: block;
+        @media (min-width: $mobile-breakpoint) {
 
-                overflow: hidden;
-                font-size: 0px;
+            &:not(.res-navTop) {
 
-                margin: 0px;
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                z-index: -1;
-                border-radius: 2px;
-
-                &::before {
-                    content: '☰';
-                    color: white;
-                    font-size: 20px;
+                a {
+                    color: #FFF;
+                    font-weight: 100;
+                    font-size: 13px;
                 }
 
-                & ~ .separator {
-                    display: none;
-                    padding: $well-padding;
-                }
-            }
-            &:hover {
                 .separator {
-                    background: rgba(60,60,60,1);
-                }
-                .message-count {
-                    display: none;
-                }
-            }
-
-            $dropdown-items: "a#modmail", "a#mail", "ul", ".user", "form.logout";
-            $dropdown-anchors: "a#modmail", "a#mail", "ul a", ".user a", "form.logout a";
-
-            @each $anchor in $dropdown-anchors {
-                & > #{$anchor} {
-                    padding: 13px 40px;
-                    padding-right: 10px;
-                    display: inline-block;
-                    text-decoration: none;
-                }
-            }
-
-            @each $item in $dropdown-items {
-                &:hover > #{$item} {
-                    display: block;
-                }
-                & > #{$item} {
-                    display: none;
-                    margin: 0px;
+                    top: 0px;
                     background: rgba(60,60,60,0.9);
-                    width: 100%;
-                    position: static;
-                    text-transform: capitalize;
+                    width: 45px;
+                    height: 45px;
+                    line-height: 45px;
+                    text-align: center;
+                    display: block;
+
+                    overflow: hidden;
+                    font-size: 0px;
+
+                    margin: 0px;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    z-index: -1;
+                    border-radius: 2px;
+
+                    &::before {
+                        content: '☰';
+                        color: white;
+                        font-size: 20px;
+                    }
+
+                    & ~ .separator {
+                        display: none;
+                        padding: $well-padding;
+                    }
                 }
-                & > #{$item}:hover {
-                    background: rgba(60,60,60,1);
-                }
-            }
-
-            #mail, #modmail {
-                text-indent: 0px;
-                height: initial;
-            }
-            .user {
-                margin-top: 50px;
-                padding-right: 55px;
-                font-size: 0px;
-            }
-
-            & > a#mail.havemail {
-                background: rgba(105, 38, 38, 0.6);
-
                 &:hover {
-                    background: rgba(105, 38, 38, 0.7);
+                    .separator {
+                        background: rgba(60,60,60,1);
+                    }
+                    .message-count {
+                        display: none;
+                    }
                 }
-            }
 
+                $dropdown-items: "a#modmail", "a#mail", "ul", ".user", "form.logout";
+                $dropdown-anchors: "a#modmail", "a#mail", "ul a", ".user a", "form.logout a";
+
+                @each $anchor in $dropdown-anchors {
+                    & > #{$anchor} {
+                        padding: 13px 40px;
+                        padding-right: 10px;
+                        display: inline-block;
+                        text-decoration: none;
+                    }
+                }
+
+                @each $item in $dropdown-items {
+                    &:hover > #{$item} {
+                        display: block;
+                    }
+                    & > #{$item} {
+                        display: none;
+                        margin: 0px;
+                        background: rgba(60,60,60,0.9);
+                        width: 100%;
+                        position: static;
+                        text-transform: capitalize;
+                    }
+                    & > #{$item}:hover {
+                        background: rgba(60,60,60,1);
+                    }
+                }
+
+                #mail, #modmail {
+                    text-indent: 0px;
+                    height: initial;
+                }
+                .user {
+                    margin-top: 50px;
+                    padding-right: 55px;
+                    font-size: 0px;
+                }
+
+                & > a#mail.havemail {
+                    background: rgba(105, 38, 38, 0.6);
+
+                    &:hover {
+                        background: rgba(105, 38, 38, 0.7);
+                    }
+                }
+
+            }
         }
     }
 
