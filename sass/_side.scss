@@ -11,6 +11,10 @@
     box-shadow: 0px 0px 5px 0px rgba(black, 0.3);
     position: relative;
 
+    &::before {
+        content: "";
+    }
+
     @media (max-width: $mobile-breakpoint) {
         width: $sidebar-width-mobile;
         margin-right: $side-margin-mobile;

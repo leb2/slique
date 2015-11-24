@@ -47,7 +47,7 @@ gulp.task('build', function() {
 
         .pipe(minifyCss())
 
-        .pipe(rename('./slique.css'))
+        // .pipe(rename('./slique.css'))
 
         .pipe(gulp.dest('./'));
 });
