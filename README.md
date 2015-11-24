@@ -7,6 +7,8 @@ markup required to style the sidebar.
 1. Click on [slique.css](https://raw.githubusercontent.com/leb2/slique/master/slique.css) and paste the code into your subreddit's stylesheet.
 2. Upload the images in the images folder (but not the icons!) and hit save.
 
+### Modules ###
+If you don't want the hamburger dropdown menu, instead use the css from [slique_base.css](https://raw.githubusercontent.com/leb2/slique/master/slique_base.css) 
 
 ### Custom Build ###
 If you know how to use the command line and want to build your own version of slique, the modifiable variables are in `sass/_variables.scss`.
