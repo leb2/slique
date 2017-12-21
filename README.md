@@ -1,4 +1,7 @@
 # Slique #
+
+_Note: Slique is no longer being maintained and may no longer be 100% compatible with the current Reddit._
+
 A clean and soothing theme for Reddit. [View the demo](http://reddit.com/r/slique) for
 markup required to style the sidebar.
 
